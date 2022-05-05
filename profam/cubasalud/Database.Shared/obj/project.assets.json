@@ -1434,11 +1434,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj",
+      "projectUniqueName": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj",
       "projectName": "Database.Shared",
-      "projectPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj",
+      "projectPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj",
       "packagesPath": "/home/benjamin/.nuget/packages/",
-      "outputPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/",
+      "outputPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/benjamin/.nuget/NuGet/NuGet.Config"

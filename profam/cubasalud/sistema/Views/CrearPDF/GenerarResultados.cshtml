@@ -1,0 +1,65 @@
+@* @model sistema.Models.facturaVentaViewModel *@
+@model Database.Shared.Models.Examen
+
+ @{
+    Layout = "_HojaLayout";
+
+    string paciente = "";
+    string nit = "";
+    string direccion = "";
+}
+
+
+<style>
+.logof{
+    text-align: center;
+}
+</style>
+
+<div class="container-fluid">
+    <div class="encabezado">
+        <div class="logof">
+            <img src="~/assets/images/logoprincipalreporte.jpeg" alt="" width="120">
+        </div>
+        <div class="infof">
+            <div>
+                <h5>INFORMA DE RESULTADOS</h5>
+            </div>
+            <div style="width: 410px; float: left;">
+                 <h6>
+                    <span style="font-weight: 600;">PACIENTE:</span> 
+                        @(Model.Paciente == null ? "" : Model.Paciente.Nombre)
+                </h6>
+                 <h6>
+                    <span style="font-weight: 600;">Código paciente:</span> 
+                        @Model.PacienteId
+                </h6>
+                <h6>
+                    <span style="font-weight: 600;">MEDICO:</span> 
+                        @Model.DoctorReferido
+                </h6>
+            </div>
+        </div>
+    </div>
+    <br><br> <br><br> <br><br> <br><br> 
+    <div class="detalle" style="height: 700px;  border-left: 1px solid gray;  border-right: 1px solid gray; border-radius: 10px;">
+        <table class="table" style="">
+            <thead>
+                <tr>
+                    <th style="width: 10%; text-align: center;">EXAMEN SOLICITADO</th>
+                    <th style="width: 70%; text-align: center;">RESULTADO</th>
+                    <th style="width: 20%; text-align: center;">VALOR REFERENCIA</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.DetalleExamenes)
+                {
+                    <tr>
+                        <td style="text-align: center;">@item.Examen.DetalleExamenes.Select(a => a.ExamenLabClinico.NombreExamen).FirstOrDefault()</td>
+                        <td style="text-align: left;">@item.Resultado</td>
+                        <td style="text-align: right;">@item.Examen.DetalleExamenes.Select(a => a.ExamenLabClinico.DatosExamenesLabClinicos.FirstOrDefault().ValorReferencia).FirstOrDefault()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

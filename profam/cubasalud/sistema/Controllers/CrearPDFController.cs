@@ -402,6 +402,13 @@ namespace sistema.Controllers
             
             return new ViewAsPdf("GenerarReporteExamen",lista);
         }
+
+        public IActionResult GenerarResultados(int id)
+        {
+            var lista = _laboratorioClinico.GetExamenRealizado(id);
+            
+            return new ViewAsPdf("GenerarResultados",lista);
+        }
         
 
          public IActionResult CotizacionesListaPdf()

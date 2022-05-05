@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/sistema/farmamest.csproj": {}
+    "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/farmamest.csproj": {}
   },
   "projects": {
-    "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj": {
+    "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj",
+        "projectUniqueName": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj",
         "projectName": "Database.Shared",
-        "projectPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj",
+        "projectPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj",
         "packagesPath": "/home/benjamin/.nuget/packages/",
-        "outputPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/",
+        "outputPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/benjamin/.nuget/NuGet/NuGet.Config"
@@ -98,14 +98,14 @@
         }
       }
     },
-    "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/sistema/farmamest.csproj": {
+    "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/farmamest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/sistema/farmamest.csproj",
+        "projectUniqueName": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/farmamest.csproj",
         "projectName": "farmamest",
-        "projectPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/sistema/farmamest.csproj",
+        "projectPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/farmamest.csproj",
         "packagesPath": "/home/benjamin/.nuget/packages/",
-        "outputPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/sistema/obj/",
+        "outputPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/benjamin/.nuget/NuGet/NuGet.Config"
@@ -120,8 +120,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj": {
-                "projectPath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/Database.Shared.csproj"
+              "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj": {
+                "projectPath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/Database.Shared/Database.Shared.csproj"
               }
             }
           }

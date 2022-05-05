@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/sistema/farmamest.csproj",
+  "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/farmamest.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14400,6 +14400,1372 @@
     "CSharpLanguageVersion": 800
   },
   "RootNamespace": "farmamest",
-  "Documents": [],
+  "Documents": [
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/VerGraficaFecha.cshtml",
+      "TargetPath": "Views\\Venta\\VerGraficaFecha.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/_ProductoForm.cshtml",
+      "TargetPath": "Views\\Productos\\_ProductoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/ListaPeticiones.cshtml",
+      "TargetPath": "Views\\Compra\\ListaPeticiones.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/Index.cshtml",
+      "TargetPath": "Views\\Cita\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ExamenesSolicitados.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ExamenesSolicitados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/_DatosForm.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\_DatosForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/ServiciosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\ServiciosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Servicio/Nuevo.cshtml",
+      "TargetPath": "Views\\Servicio\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CategoriaGasto/Lista.cshtml",
+      "TargetPath": "Views\\CategoriaGasto\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/Lista.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ModificarInsumosBodega.cshtml",
+      "TargetPath": "Views\\Productos\\ModificarInsumosBodega.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaTipoProductos.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaTipoProductos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/MedicamentosFarmaciaReporte.cshtml",
+      "TargetPath": "Views\\Productos\\MedicamentosFarmaciaReporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CajaDetallePdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CajaDetallePdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaLabProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaLabProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/Nuevo.cshtml",
+      "TargetPath": "Views\\Compra\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Consultas/Index.cshtml",
+      "TargetPath": "Views\\Consultas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/_CompraForm.cshtml",
+      "TargetPath": "Views\\Compra\\_CompraForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaLiquidados.cshtml",
+      "TargetPath": "Views\\Envio\\ListaLiquidados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaPedidos.cshtml",
+      "TargetPath": "Views\\Envio\\ListaPedidos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ExamenesCancelados.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ExamenesCancelados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_PresentacionProductoForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_PresentacionProductoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Proveedor/_ProveedorForm.cshtml",
+      "TargetPath": "Views\\Proveedor\\_ProveedorForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ModificarMedicamentosBodega.cshtml",
+      "TargetPath": "Views\\Productos\\ModificarMedicamentosBodega.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/MedicamentosClinica.cshtml",
+      "TargetPath": "Views\\Productos\\MedicamentosClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/_TrasladoForm.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\_TrasladoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CategoriaGasto/Modificar.cshtml",
+      "TargetPath": "Views\\CategoriaGasto\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/_ProductoInsumosForm.cshtml",
+      "TargetPath": "Views\\Productos\\_ProductoInsumosForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaMisPedidosEntregadosAdmin.cshtml",
+      "TargetPath": "Views\\Envio\\ListaMisPedidosEntregadosAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/ComprasPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\ComprasPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/Modificar.cshtml",
+      "TargetPath": "Views\\Venta\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/Aceptados.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\Aceptados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/UsuariosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\UsuariosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ExamenesEnProceso.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ExamenesEnProceso.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaMisPedidos.cshtml",
+      "TargetPath": "Views\\Envio\\ListaMisPedidos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Ruta/Modificar.cshtml",
+      "TargetPath": "Views\\Ruta\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ModificarMedicamentosClinica.cshtml",
+      "TargetPath": "Views\\Productos\\ModificarMedicamentosClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/NuevoTraslado.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\NuevoTraslado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CotizacionesListaPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CotizacionesListaPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ListaExamenes.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ListaExamenes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CategoriasGastosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CategoriasGastosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ModificarDatosLab.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ModificarDatosLab.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/Ventas.cshtml",
+      "TargetPath": "Views\\CrearPDF\\Ventas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevoPresentacionProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevoPresentacionProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/VentasServiciosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\VentasServiciosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/_TrasladoForm.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\_TrasladoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/ListaComprados.cshtml",
+      "TargetPath": "Views\\Compra\\ListaComprados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Gasto/Lista.cshtml",
+      "TargetPath": "Views\\Gasto\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/NuevoFarmaciaInsumosMedicos.cshtml",
+      "TargetPath": "Views\\Productos\\NuevoFarmaciaInsumosMedicos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/prueba.cshtml",
+      "TargetPath": "Views\\Venta\\prueba.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/VerDetalle.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\VerDetalle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ListaExamenesRealizados.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ListaExamenesRealizados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaCategorias.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaCategorias.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CajaClinica/VerDetalle.cshtml",
+      "TargetPath": "Views\\CajaClinica\\VerDetalle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cotizacion/NoConfirmadas.cshtml",
+      "TargetPath": "Views\\Cotizacion\\NoConfirmadas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ListaFaltantesClinica.cshtml",
+      "TargetPath": "Views\\Productos\\ListaFaltantesClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ModificarInsumosFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\ModificarInsumosFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/ReporteComprasFechas.cshtml",
+      "TargetPath": "Views\\Compra\\ReporteComprasFechas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/Lista.cshtml",
+      "TargetPath": "Views\\Cita\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/_VentaForm.cshtml",
+      "TargetPath": "Views\\Venta\\_VentaForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/VentaServicio/_VentaServicioForm.cshtml",
+      "TargetPath": "Views\\VentaServicio\\_VentaServicioForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/InsumosMedicosFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\InsumosMedicosFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Account/Register.cshtml",
+      "TargetPath": "Views\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Caja/Aperturar.cshtml",
+      "TargetPath": "Views\\Caja\\Aperturar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/NuevoClinicaInsumosMedicos.cshtml",
+      "TargetPath": "Views\\Productos\\NuevoClinicaInsumosMedicos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/Aperturar.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\Aperturar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/NuevoBodegaMedicamentos.cshtml",
+      "TargetPath": "Views\\Productos\\NuevoBodegaMedicamentos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/_RealizarExamenClinico.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\_RealizarExamenClinico.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/NuevaCategoria.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\NuevaCategoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/Reporte.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\Reporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/FaltantesPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\FaltantesPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ModificarMedicamentosFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\ModificarMedicamentosFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/FaltantesFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\FaltantesFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ListaCategorias.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ListaCategorias.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarLabProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarLabProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/MedicamentosClinicaReporte.cshtml",
+      "TargetPath": "Views\\Productos\\MedicamentosClinicaReporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/Editar.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\Editar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/Reporte.cshtml",
+      "TargetPath": "Views\\Compra\\Reporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/RealizarExamenClinico.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\RealizarExamenClinico.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarCategoria.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarCategoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/Reporte.cshtml",
+      "TargetPath": "Views\\Venta\\Reporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/CitasFinalizadas.cshtml",
+      "TargetPath": "Views\\Cita\\CitasFinalizadas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/InsumosMedicosBodega.cshtml",
+      "TargetPath": "Views\\Productos\\InsumosMedicosBodega.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Account/_NuevoUsuarioForm.cshtml",
+      "TargetPath": "Views\\Account\\_NuevoUsuarioForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/ConProblema.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\ConProblema.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_GrupoTForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_GrupoTForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/DetalleCotizacionListaPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\DetalleCotizacionListaPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Empleado/_EmpleadoForm.cshtml",
+      "TargetPath": "Views\\Empleado\\_EmpleadoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Dashboard/VentasPorMesesClinica.cshtml",
+      "TargetPath": "Views\\Dashboard\\VentasPorMesesClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Caja/VerDetalle.cshtml",
+      "TargetPath": "Views\\Caja\\VerDetalle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Servicio/_ServicioForm.cshtml",
+      "TargetPath": "Views\\Servicio\\_ServicioForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/_ExamenForm.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\_ExamenForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CategoriasLabClinicoPDF.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CategoriasLabClinicoPDF.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/InsumosFarmaciaReporte.cshtml",
+      "TargetPath": "Views\\Productos\\InsumosFarmaciaReporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaMarcas.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaMarcas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Pacientes/_PacientesForm.cshtml",
+      "TargetPath": "Views\\Pacientes\\_PacientesForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/NuevoClinicaMedicamentos.cshtml",
+      "TargetPath": "Views\\Productos\\NuevoClinicaMedicamentos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/VentaServicio/Nuevo.cshtml",
+      "TargetPath": "Views\\VentaServicio\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarGrupo.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarGrupo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_GrupoForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_GrupoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/ListaVentasFarmacia.cshtml",
+      "TargetPath": "Views\\Venta\\ListaVentasFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/Lista.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaGrupos.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaGrupos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/CrearExamen.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\CrearExamen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Empleado/Lista.cshtml",
+      "TargetPath": "Views\\Empleado\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/ReciboVentaPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\ReciboVentaPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/ListaVentasClinica.cshtml",
+      "TargetPath": "Views\\Venta\\ListaVentasClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/InsumosMedicosClinica.cshtml",
+      "TargetPath": "Views\\Productos\\InsumosMedicosClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/VencidosFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\VencidosFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/NuevaVentaClinica.cshtml",
+      "TargetPath": "Views\\Venta\\NuevaVentaClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/AccessDenied.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Empleado/Nuevo.cshtml",
+      "TargetPath": "Views\\Empleado\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Proveedor/Nuevo.cshtml",
+      "TargetPath": "Views\\Proveedor\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ListaFaltantesFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\ListaFaltantesFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/NuevoBodegaInsumosMedicos.cshtml",
+      "TargetPath": "Views\\Productos\\NuevoBodegaInsumosMedicos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CategoriasPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CategoriasPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/ListaUsuarios.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ListaUsuarios.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/NuevoUsuario.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\NuevoUsuario.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/VerPedidoMensajero.cshtml",
+      "TargetPath": "Views\\Envio\\VerPedidoMensajero.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/ReporteVentasFechas.cshtml",
+      "TargetPath": "Views\\Venta\\ReporteVentasFechas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/Lista.cshtml",
+      "TargetPath": "Views\\Categoria\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/NuevoFarmaciaMedicamentos.cshtml",
+      "TargetPath": "Views\\Productos\\NuevoFarmaciaMedicamentos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_forbiddenLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_forbiddenLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CajaClinica/Aperturar.cshtml",
+      "TargetPath": "Views\\CajaClinica\\Aperturar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/Nueva.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Nueva.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Consultas/_ConsultaForm.cshtml",
+      "TargetPath": "Views\\Consultas\\_ConsultaForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Pacientes/Lista.cshtml",
+      "TargetPath": "Views\\Pacientes\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cotizacion/Backup.cshtml",
+      "TargetPath": "Views\\Cotizacion\\Backup.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cotizacion/Nuevo.cshtml",
+      "TargetPath": "Views\\Cotizacion\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevaCategoria.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevaCategoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/_CategoriaForm.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\_CategoriaForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/GenerarReporteExamen.cshtml",
+      "TargetPath": "Views\\CrearPDF\\GenerarReporteExamen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/Account/_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ImportarDesdeExcelPacientes.cshtml",
+      "TargetPath": "Views\\Productos\\ImportarDesdeExcelPacientes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cotizacion/_CotizacionForm.cshtml",
+      "TargetPath": "Views\\Cotizacion\\_CotizacionForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ProximosAVencerFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\ProximosAVencerFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_MarcasForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_MarcasForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cliente/Nuevo.cshtml",
+      "TargetPath": "Views\\Cliente\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Account/Lista.cshtml",
+      "TargetPath": "Views\\Account\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/ProveedoresPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\ProveedoresPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/ConProblema.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\ConProblema.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevoLaboratorioProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevoLaboratorioProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/Cancelados.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\Cancelados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Caja/Reporte.cshtml",
+      "TargetPath": "Views\\Caja\\Reporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/EditarCita.cshtml",
+      "TargetPath": "Views\\Cita\\EditarCita.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/_CitaForm.cshtml",
+      "TargetPath": "Views\\Cita\\_CitaForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Gasto/Modificar.cshtml",
+      "TargetPath": "Views\\Gasto\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/InsumosClinicaReporte.cshtml",
+      "TargetPath": "Views\\Productos\\InsumosClinicaReporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CajaDetalleClinicaPDF.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CajaDetalleClinicaPDF.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/Nuevo.cshtml",
+      "TargetPath": "Views\\Categoria\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Caja/ReporteDetalle.cshtml",
+      "TargetPath": "Views\\Caja\\ReporteDetalle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/VerPedido.cshtml",
+      "TargetPath": "Views\\Envio\\VerPedido.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/Utilidad.cshtml",
+      "TargetPath": "Views\\CrearPDF\\Utilidad.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_ReportesLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_ReportesLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Consultas/IniciarConsulta.cshtml",
+      "TargetPath": "Views\\Consultas\\IniciarConsulta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_TipoProductoForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_TipoProductoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ModificarInsumosMedicosClinica.cshtml",
+      "TargetPath": "Views\\Productos\\ModificarInsumosMedicosClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/AgendarCita.cshtml",
+      "TargetPath": "Views\\Cita\\AgendarCita.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/VentaServicio/Modificar.cshtml",
+      "TargetPath": "Views\\VentaServicio\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaMisPedidosEntregados.cshtml",
+      "TargetPath": "Views\\Envio\\ListaMisPedidosEntregados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/EditarDetalleExamen.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\EditarDetalleExamen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cliente/Lista.cshtml",
+      "TargetPath": "Views\\Cliente\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/EnTransito.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\EnTransito.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/ListaRecepciones.cshtml",
+      "TargetPath": "Views\\Compra\\ListaRecepciones.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/Faltantes.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\Faltantes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/FaltantesClinica.cshtml",
+      "TargetPath": "Views\\Productos\\FaltantesClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ListaCuadricula.cshtml",
+      "TargetPath": "Views\\Productos\\ListaCuadricula.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Consultas/Informacion.cshtml",
+      "TargetPath": "Views\\Consultas\\Informacion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ImportarDesdeExcel.cshtml",
+      "TargetPath": "Views\\Productos\\ImportarDesdeExcel.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/ReporteU.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\ReporteU.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ModificarExamenLab.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ModificarExamenLab.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_MensajeExito.cshtml",
+      "TargetPath": "Views\\Shared\\_MensajeExito.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/Modificar.cshtml",
+      "TargetPath": "Views\\Compra\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/ReporteU.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\ReporteU.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/GenerarResultados.cshtml",
+      "TargetPath": "Views\\CrearPDF\\GenerarResultados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/MedicamentosBodegaReporte.cshtml",
+      "TargetPath": "Views\\Productos\\MedicamentosBodegaReporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/CalendarioLineal.cshtml",
+      "TargetPath": "Views\\Cita\\CalendarioLineal.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/VerRecepcion.cshtml",
+      "TargetPath": "Views\\Compra\\VerRecepcion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CategoriaGasto/Nuevo.cshtml",
+      "TargetPath": "Views\\CategoriaGasto\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ExamenesEnRevision.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ExamenesEnRevision.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ImportarDesdeExcelInsumos.cshtml",
+      "TargetPath": "Views\\Productos\\ImportarDesdeExcelInsumos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaRechazados.cshtml",
+      "TargetPath": "Views\\Envio\\ListaRechazados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaPresentacionProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaPresentacionProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ModificarCategoriaLab.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ModificarCategoriaLab.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/InsumosBodegaReporte.cshtml",
+      "TargetPath": "Views\\Productos\\InsumosBodegaReporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Gasto/Nuevo.cshtml",
+      "TargetPath": "Views\\Gasto\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/ReporteFechas.cshtml",
+      "TargetPath": "Views\\Venta\\ReporteFechas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cliente/_ClienteForm.cshtml",
+      "TargetPath": "Views\\Cliente\\_ClienteForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/Editar.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\Editar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Account/ListaUsuarios.cshtml",
+      "TargetPath": "Views\\Account\\ListaUsuarios.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CLientesPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CLientesPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/CajasPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\CajasPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Empleado/Modificar.cshtml",
+      "TargetPath": "Views\\Empleado\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaEnRuta.cshtml",
+      "TargetPath": "Views\\Envio\\ListaEnRuta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Dashboard/VentasPorMesesFarmacia.cshtml",
+      "TargetPath": "Views\\Dashboard\\VentasPorMesesFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Servicio/Modificar.cshtml",
+      "TargetPath": "Views\\Servicio\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/Faltantes.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\Faltantes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/VentaServicio/Lista.cshtml",
+      "TargetPath": "Views\\VentaServicio\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/VencidosClinica.cshtml",
+      "TargetPath": "Views\\Productos\\VencidosClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ExamenesFinalizados.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ExamenesFinalizados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/ModificarResultadosExamen.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\ModificarResultadosExamen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Consultas/ModificarExamenFisico.cshtml",
+      "TargetPath": "Views\\Consultas\\ModificarExamenFisico.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/EnviosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\EnviosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/MedicamentosBodega.cshtml",
+      "TargetPath": "Views\\Productos\\MedicamentosBodega.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_LaboratorioProductoForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_LaboratorioProductoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Ruta/Nuevo.cshtml",
+      "TargetPath": "Views\\Ruta\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/NoAsistidas.cshtml",
+      "TargetPath": "Views\\Cita\\NoAsistidas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/Cancelados.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\Cancelados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/Importar.cshtml",
+      "TargetPath": "Views\\Productos\\Importar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Ruta/Lista.cshtml",
+      "TargetPath": "Views\\Ruta\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevoGrupoTProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevoGrupoTProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarPresentacionProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarPresentacionProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Proveedor/Lista.cshtml",
+      "TargetPath": "Views\\Proveedor\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_LoginLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Consultas/ModificarHIstoria.cshtml",
+      "TargetPath": "Views\\Consultas\\ModificarHIstoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cotizacion/Confirmadas.cshtml",
+      "TargetPath": "Views\\Cotizacion\\Confirmadas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Areas/Identity/Pages/_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_CategoriaViAdmin.cshtml",
+      "TargetPath": "Views\\Categoria\\_CategoriaViAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevaMarca.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevaMarca.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Home/Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Gasto/_GastoForm.cshtml",
+      "TargetPath": "Views\\Gasto\\_GastoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/GraficaVentas.cshtml",
+      "TargetPath": "Views\\Venta\\GraficaVentas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Proveedor/Modificar.cshtml",
+      "TargetPath": "Views\\Proveedor\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/RutasPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\RutasPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/Aceptados.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\Aceptados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAClinica/NuevoTraslado.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAClinica\\NuevoTraslado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Servicio/Lista.cshtml",
+      "TargetPath": "Views\\Servicio\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/VentaServicio/ReporteVentasServiciosFechas.cshtml",
+      "TargetPath": "Views\\VentaServicio\\ReporteVentasServiciosFechas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/ListaMisPedidosEnRuta.cshtml",
+      "TargetPath": "Views\\Envio\\ListaMisPedidosEnRuta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/ReprogramarCita.cshtml",
+      "TargetPath": "Views\\Cita\\ReprogramarCita.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Compra/ListaTodas.cshtml",
+      "TargetPath": "Views\\Compra\\ListaTodas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/GastosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\GastosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarTipoProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarTipoProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/LaboratorioClinico/VentasLabLista.cshtml",
+      "TargetPath": "Views\\LaboratorioClinico\\VentasLabLista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Envio/Lista.cshtml",
+      "TargetPath": "Views\\Envio\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/MedicamentosFarmacia.cshtml",
+      "TargetPath": "Views\\Productos\\MedicamentosFarmacia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cotizacion/Modificar.cshtml",
+      "TargetPath": "Views\\Cotizacion\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/Cotizacion.cshtml",
+      "TargetPath": "Views\\CrearPDF\\Cotizacion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Ruta/_RutaForm.cshtml",
+      "TargetPath": "Views\\Ruta\\_RutaForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarGrupoTProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarGrupoTProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Account/Modificar.cshtml",
+      "TargetPath": "Views\\Account\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ModificarMarca.cshtml",
+      "TargetPath": "Views\\Categoria\\ModificarMarca.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/ReciboServicios.cshtml",
+      "TargetPath": "Views\\CrearPDF\\ReciboServicios.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/_HojaLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_HojaLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevoGrupo.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevoGrupo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/EnTransito.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\EnTransito.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Pacientes/Modificar.cshtml",
+      "TargetPath": "Views\\Pacientes\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cliente/Modificar.cshtml",
+      "TargetPath": "Views\\Cliente\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/_VentaClinicaForm.cshtml",
+      "TargetPath": "Views\\Venta\\_VentaClinicaForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/Modificar.cshtml",
+      "TargetPath": "Views\\Categoria\\Modificar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Pacientes/Nuevo.cshtml",
+      "TargetPath": "Views\\Pacientes\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/NuevoTipoProducto.cshtml",
+      "TargetPath": "Views\\Categoria\\NuevoTipoProducto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/ReporteEnviosFechas.cshtml",
+      "TargetPath": "Views\\Venta\\ReporteEnviosFechas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/TrasladosBodegaAFarmacia/Reporte.cshtml",
+      "TargetPath": "Views\\TrasladosBodegaAFarmacia\\Reporte.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Cita/CitasListadoNormales.cshtml",
+      "TargetPath": "Views\\Cita\\CitasListadoNormales.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Venta/Nuevo.cshtml",
+      "TargetPath": "Views\\Venta\\Nuevo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CategoriaGasto/_CategoriaGastoForm.cshtml",
+      "TargetPath": "Views\\CategoriaGasto\\_CategoriaGastoForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/CrearPDF/EmpleadosPdf.cshtml",
+      "TargetPath": "Views\\CrearPDF\\EmpleadosPdf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Productos/ProximosAVencerClinica.cshtml",
+      "TargetPath": "Views\\Productos\\ProximosAVencerClinica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/ListaGrupoT.cshtml",
+      "TargetPath": "Views\\Categoria\\ListaGrupoT.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/Views/Categoria/_CategoriaForm.cshtml",
+      "TargetPath": "Views\\Categoria\\_CategoriaForm.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.2"
 }
