@@ -1,0 +1,86 @@
+@* @model sistema.Models.facturaVentaViewModel *@
+@model Database.Shared.Models.Examen
+
+ @{
+    Layout = "_HojaLayout";
+
+    string paciente = "";
+    string nit = "";
+    string direccion = "";
+
+}
+
+
+
+<style>
+.logof{
+    text-align: center;
+}
+</style>
+
+<div class="container-fluid">
+    <div class="encabezado">
+        <div class="logof">
+            <img src="~/assets/images/logoprincipalreporte.jpeg" alt="" width="120">
+        </div>
+        <div class="infof">
+            <div>
+                <h5>Recibo</h5>
+            </div>
+            <div style="width: 410px; float: left;">
+                 <h6>
+                    <span style="font-weight: 600;">Nombre:</span> @Model.VentasLabs.FirstOrDefault().Nombres
+                </h6>
+                <h6>
+                    <span style="font-weight: 600;">NIT:</span> @Model.VentasLabs.FirstOrDefault().Nit
+                </h6>
+                 <h6>
+                    <span style="font-weight: 600;">Direccion:</span> @Model.VentasLabs.FirstOrDefault().Direccion
+                </h6>
+                <h6>
+                    <span style="font-weight: 600;">Fecha Venta:</span> @Model.VentasLabs.FirstOrDefault().FechaVenta.ToString("dd/MM/yyyy HH:mm")
+                </h6>
+                
+            </div>
+        </div>
+    </div>
+    <br><br> <br><br> <br><br> <br><br> 
+    <div class="detalle" style="height: 700px;  border-left: 1px solid gray;  border-right: 1px solid gray; border-radius: 10px;">
+        <table class="table" style="">
+            <thead>
+                <tr>
+                    <th style="width: 10%; text-align: center;">Cantidad</th>
+                    <th style="width: 70%; text-align: center;">Descripcion</th>
+                    <th style="width: 20%; text-align: center;">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.DetalleExamenes)
+                {
+                    <tr>
+                        <td style="text-align: center;">@item.Cantidad</td>
+                        <td style="text-align: left;">@item.Examen.DetalleExamenes.Select(a => a.ExamenLabClinico.NombreExamen).FirstOrDefault()</td>
+                        <td style="text-align: right;">Q @item.Total.ToString("0.00")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+        <div class="pie-pag" style=" text-align: right; border-top: 1px solid gray; border-radius: 10px;">
+        <span style="padding: 0.5em; font-size: 1.1em; font-weight: bold;">
+            Subtotal: Q @Model.DetalleExamenes.Sum(a => a.Subtotal)
+        </span> <br>
+
+        <span style="padding: 0.5em; font-size: 1.1em; font-weight: bold;">
+            Descuento: Q @Model.DetalleExamenes.Sum(a => a.Descuento)
+        </span> <br>
+
+
+         <span style="padding: 0.5em; font-size: 1.1em; font-weight: bold;">
+            Total: Q @Model.DetalleExamenes.Sum(a => a.Total)
+        </span> <br>
+       
+    </div>
+    
+</div>

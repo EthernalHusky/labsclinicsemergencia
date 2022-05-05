@@ -1,0 +1,168 @@
+@{
+    Layout = "_HojaLayout";
+
+    decimal suma = 0.00m;
+    decimal sumades = 0.00m;
+    decimal sumasub = 0.00m;
+DateTime fecha = DateTime.Now;
+
+
+}
+
+@model Database.Shared.Models.Cotizacion
+
+
+
+<div class="form-row">
+    <div class="col-md-12">
+
+        
+
+        <div class="form">
+            <div class="col-md-12">
+                    <br/>
+                
+                  
+                        <img width="40"  src="/assets/images/farmamestlogo.png" alt="">
+                        <div class="text-right" style="font-size: 12px;">
+                            <label class=""><strong>Fecha y Hora de Emision: </strong> @Model.FechaCotizacion</label> &nbsp; &nbsp;
+                            <label class=""><strong>Valida Hasta: </strong> @Model.FechaValida</label>
+                            <br/>   
+                        </div>
+                        <fieldset disabled>
+                            <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <br/> <br/> 
+                                            <label class=""><strong>No.Cotizacion: </strong></label>
+                                                <label class="">@Model.Id</label>
+                                           
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                        <div class="col-md-6">
+                                        <label><strong>Cliente: </strong></label>
+                                        @* <label class="">@Model.Cliente</label> *@
+                                    </div>                  
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Nit: </strong></label>
+                                           <label class="">@Model.Nit</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group"><label class=""><strong>Direccion: </strong></label>
+                                           <label class="">@Model.Direccion</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                       
+                        <br/>
+
+                       
+                             <table class='table  table-bordered' id="tableventa">
+                                <thead>
+                                    <tr>
+                                        @* <th>Codigo</th> *@
+                                        <th>Nombre Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th>Descuento</th>
+                                        <th>Subtotal</th>
+                                         <th>Total</th>
+                                        @* <th>Acciones</th> *@
+                                    </tr>
+                                </thead>
+                                <tbody id="contentdetalle">
+
+                                     @if(Model != null)
+                                    {
+                                            
+                                            foreach (var item in Model.DetalleCotizacion)
+                                            {
+                                            <tr>
+                                         
+                                            <td>
+                                            @if(item.ProductoId == null)
+                                            {
+                                                @item.Servicio.NombreServicio
+                                            }
+                                            else
+                                            {
+                                                @item.Producto.NombreProducto
+                                            }
+
+                                        </td>
+                                            <td>@item.Cantidad</td>
+                                            <td>Q @item.Precio</td>
+                                            <td>Q @item.Descuento</td>
+                                            <td>Q @item.Subtotal</td>
+                                            <td>Q @item.Total</td>
+                                            @* <td><button  type="button"  class="btn btn-danger btn-sm" onclick="eliminarFila(this,@item.Precio)">Quitar</button></td> *@
+                                            <td style="display: none;" class="idProd">@item.Id</td>
+                                        </tr>
+                                            suma+=item.Total;
+                                            sumades+=item.Descuento;
+                                            sumasub+=item.Subtotal;
+                                        }
+                                    }
+
+                                </tbody>
+                                
+                            </table>     
+
+
+                        </div>
+
+                        <br />
+                        <div class="text-right" style="font-size: 17px;">
+                            <span>Subtotal:</span>
+                            Q <span >@sumasub</span>
+                        </div>
+                        <div class="text-right" style="font-size: 17px;">
+                            <span>Descuento:</span>
+                            Q <span>@sumades</span>
+                        </div>
+                        <div class="text-right" style="font-size: 17px;">
+                            <span>Total:</span>
+                            Q <span >@suma</span>
+                        </div>
+
+
+
+
+
+
+               
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+    </div>
+
+
+
+
+
+@section Scripts
+{
+<script src="~/js/FuncionesCotizacion.js"></script>
+}
+
+

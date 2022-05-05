@@ -1,0 +1,207 @@
+@model sistema.Models.VentaClinicaBaseViewModel
+
+
+<ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+    <li class="nav-item">
+        <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
+            <span>Datos de la venta</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2">
+            <span>Detalle de la venta</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="tab" class="nav-link" id="tab-3" data-toggle="tab" href="#tab-content-3">
+            <span>Agregar Productos</span>
+        </a>
+    </li>
+    @* <li class="nav-item">
+        <a role="tab" class="nav-link" id="tab-3" data-toggle="tab" href="#tab-content-4">
+            <span>Envio</span>
+        </a>
+    </li> *@
+</ul>
+
+
+<div class="form-row">
+    <div class="col-md-12">
+        <div class="tab-content">
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                <div class="form">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                @* <button class="btn btn-primary" onclick="">prueba</button> *@
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">No.
+                                                Comprobante</label>
+                                            @* <input placeholder="Descripción Producto" class="form-control"> *@
+                                            @Html.TextBoxFor(a => a.Venta.NoComprobante, new
+                                                                           {@class="form-control",@id="nocomprobante", @placeholder="No. Comprobante" })
+                                            @Html.ValidationMessageFor(a => a.Venta.NoComprobante, "", new { @class =
+                                                                               "text-danger"})
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">Codigo Del Vendedor</label>
+                                            @* <input placeholder="Descripción Producto" class="form-control"> *@
+                                            @Html.TextBoxFor(a => a.Venta.EmpleadoId, new
+                                                                           {@class="form-control",@id="empleadoid", @placeholder="Codigo Empleado"})
+                                            @Html.ValidationMessageFor(a => a.Venta.EmpleadoId, "", new { @class =
+                                                                               "text-danger"})
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label>Cliente</label>
+                                        <select class="form-control select2bs4 selectcliente" style="width: 100%;"
+                                            asp-for="Venta.PacienteId" asp-items="@Model.ListaClientes" id="clienteselect">
+                                        </select>
+    
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">Nit</label>
+                                            @* <input placeholder="Descripción Producto" class="form-control"> *@
+                                            @Html.TextBoxFor(a => a.Venta.Nit, new {@class="form-control",@id="Nit",
+                                                                               @placeholder="Nit"})
+                                            @Html.ValidationMessageFor(a => a.Venta.Nit, "", new { @class =
+                                                                               "text-danger"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group"><label class="">Direccion</label>
+                                            @* <input placeholder="Descripción Producto" class="form-control"> *@
+                                            @Html.TextBoxFor(a => a.Venta.Direccion, new
+                                                                           {@class="form-control",@id="direccion", @placeholder="Direccion"})
+                                            @Html.ValidationMessageFor(a => a.Venta.Direccion, "", new { @class =
+                                                                               "text-danger"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <div class="tab-pane tabs-animation fade show " id="tab-content-2" role="tabpanel">
+
+                <div class="main-card mb-3 card">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class='table table-hover' id="tableventa">
+                                <thead>
+                                    <tr>
+                                        <th>Codigo</th>
+                                        <th>Nombre Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th>  %  </th>
+                                        <th>Descuento</th>
+                                        <th>Subtotal</th>
+                                        <th>Total</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contentdetalle">
+
+                                     @if(Model.Venta != null)
+                                    {
+                                        foreach (var item in Model.Venta.DetalleVenta)
+                                        {
+                                        <tr>
+                                        <td>@item.Producto.CodigoReferencia</td>
+                                        <td>@item.Producto.NombreProducto</td>
+                                        <td>@item.Cantidad</td>
+                                        <td>@item.Precio</td>
+                                        <td>@item.Total</td>
+                                        <td><button  type="button"  class="btn btn-danger btn-sm" onclick="eliminarFila(this,@item.Precio)">Quitar</button></td>
+                                        <td style="display: none;" class="idProd">@item.Id</td>
+                                    </tr>
+
+                                    }
+                                    }
+
+                                </tbody>
+                                
+                            </table>
+
+
+                        </div>
+
+                            <br/>
+                            
+
+                            <div class="text-right" style="font-size: 25px;">
+                                <span>Subtotal:</span> 
+                            Q <span id="subtotal-venta">0.00</span> 
+                            </div> 
+
+                            <div class="text-right"  style="font-size: 25px;">
+                                 <span>Descuento:</span> 
+                                 Q <span id="descuento-venta">0.00</span>           
+                            @* Q <label id="descuentoventa" contenteditable="true" style="white-space:nowrap; word-wrap: break-word;">0.00</label>  *@
+                            </div> 
+
+                            <div class="text-right" style="font-size: 25px;">
+                                <span>Total:</span> 
+                            Q <span id="precio-total-a-pagar">0.00</span> 
+                            </div> 
+
+
+                        @* <h1>Detalle de la venta</h1> *@
+
+                    </div>
+                </div>
+            </div>
+
+                <div class="tab-pane tabs-animation fade show " id="tab-content-3" role="tabpanel">
+                                                <br />
+                            <form asp-action="Nuevo" method="get">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <input value="Buscar" class="btn btn-success" onclick="FiltrarProductos(document.getElementById('buscarfiltro').value)"></input>
+                                        </div>
+                                        <input type="text" name="buscar" id="buscarfiltro" class="form-control"
+                                            placeholder="Buscar Producto...">
+                                    </div>
+                                </div>
+                            </form>
+                            <br />
+
+                        <div class="main-card mb-6 card">
+                                <div class="container-fluid">
+                                    <div class="card-body my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                        <div class="card-deck-wrapper">
+                                            <div class="card-deck">
+                                                <div class="row" id="listafiltro" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    
+
+

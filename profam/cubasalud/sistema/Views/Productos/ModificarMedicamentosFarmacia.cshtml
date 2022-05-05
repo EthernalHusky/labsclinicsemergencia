@@ -1,0 +1,52 @@
+@model sistema.Models.ProductoBaseViewModel
+
+@{
+    ViewData["Title"] = "Modificar";
+}
+
+
+     @await Html.PartialAsync("_MensajeExito")
+    <div>
+    <a href="@Url.Action("EliminarMedicamentoFarmacia","Productos", new {id = @Model.Producto.Id})"  class="btn btn-danger" hidden="@Model.Modificar" >
+        Eliminar Producto
+    </a>
+    </div>
+
+
+<br/>
+
+
+<form asp-controller="Productos" asp-action="ModificarMedicamentosFarmacia" enctype="multipart/form-data" method="post">  
+    @await Html.PartialAsync("_ProductoForm")
+</form>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        
+        $(function(){
+            $('.select2bs4').select2({
+                theme: 'bootstrap4',
+                @* tags: true, *@
+                });
+        });
+
+         $('#reservationtime').daterangepicker({
+                    timePicker: true,
+                    timePickerIncrement: 30,
+                    singleDatePicker: true,
+                    locale: {
+                        format: 'MM/DD/YYYY hh:mm A'
+                    },
+                });
+
+    </script>
+    }
+
+    @section css
+{
+    <link href="~/css/daterangepicker.css" rel="stylesheet">
+}

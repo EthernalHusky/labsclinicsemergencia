@@ -1,0 +1,45 @@
+@model IEnumerable<Database.Shared.Models.Paciente>
+
+ @{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+
+}
+
+
+                <img width="40"  src="/assets/images/farmamestlogo.png" alt="">
+                       <div class="text-right" style="font-size: 12px;">
+                            <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+                            <br/>   
+                        </div>
+              
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <a asp-action="Lista" asp-route-sortOrder="@ViewData["NombreSortParm"]"> Nombre</a>
+                            </th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>Nit</th>
+                            <th>Alias</th>
+              
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                        <tr>
+                            <td>@item.Nombre</td>
+                            <td>@item.Direccion</td>
+                            <td>@item.Telefono</td>
+                            <td>@item.Nit</td>
+                            <td>@item.Alias</td>
+                            
+                        </tr>
+                            }
+                        </tbody>
+                    </table>

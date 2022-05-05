@@ -1,0 +1,381 @@
+@model sistema.Models.InfoConsultaViewModel
+
+@{
+    // historia del problema
+    var HistoriaProblema = Model.Consulta.Historia == null ? "" : @Model.Consulta.Historia.HistoriaProblema;
+    var Diagnostico = Model.Consulta.Historia == null ? "" : @Model.Consulta.Historia.Diagnostico;
+    var Sintomas = Model.Consulta.Historia == null ? "" : @Model.Consulta.Historia.Sintomas;
+
+    // examen fisico
+    var Temperatura = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.Temperatura;
+    var FrecuenciaCardiaca = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.FrecuenciaCardiaca;
+    var FrecuenciaRespiratoria = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.FrecuenciaRespiratoria;
+    var SaturacionOxigeno = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.SaturacionDeOxigeno;
+    var PresionArterialIzq = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.PresionArterialBrazoIzquierdo;
+    var PresionArterialDer = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.PresionArterialBrazoDerecho;
+    var Observaciones = Model.Consulta.ExamenFisico == null ? "" : @Model.Consulta.ExamenFisico.Observaciones;
+
+
+    
+}
+<div class="col-md-12">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <div class="text-center">
+                <h4 class="text-primary"> Consulta # @Model.Consulta.Id</h4>
+            </div>
+            <div class="info-detail-c">
+                <label class="text-primary">Datos del paciente</label>
+                 <a class="btn btn-primary text-white btn-sm">
+                    detalle
+                </a>
+                <br><br>
+                <div class="form-row card-header">
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Paciente: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.Paciente.Nombre</span>
+                    </div>
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Edad: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.Edad</span>
+
+                    </div>
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Tel: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.Paciente.Telefono</span>
+                    </div>
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Cel: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.Paciente.Celular</span>
+                    </div>
+                </div>
+                <br><br>
+                <label class="text-primary">Datos de la consulta</label>
+                <a class="btn btn-primary text-white btn-sm">
+                    detalle
+                </a>
+                <br><br>
+                 <div class="form-row card-header">
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Especialidad: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.EspecialidadText</span>
+                    </div>
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Servicio: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.ServicioText</span>
+
+                    </div>
+                     <div class="col-md-3">
+                        <span class="font-weight-bold">Médico: </span>
+                        <span class="text-primary">@Model.Consulta.Citas.EmpleadoText</span>
+                    </div>
+                </div>
+
+                <br><br>
+                 <div class="form-row card-header">
+                     <div class="col-md-12">
+                        <span class="font-weight-bold">Motivo: 
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                                <i class="fas fa-edit"></i>
+                        </a>
+                        </span>
+                        <br>
+                        
+                        <span class="text-primary">@Model.Consulta.Citas.Motivo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="main-card mb-3 card">
+        <div class="card-header"><i class="header-icon lnr-license icon-gradient bg-plum-plate"> </i>Historial CLÍNICO
+            <div class="btn-actions-pane-right">
+                <div class="nav">
+                    <a data-toggle="tab" href="#tab-eg2-0" class="btn-pill btn-wide mr-1 ml-1 active btn btn-outline-alternate btn-sm">Historia</a>
+                    <a data-toggle="tab" href="#tab-eg2-1" class="btn-pill btn-wide mr-1 ml-1  btn btn-outline-alternate btn-sm">Examen Físico</a>
+                    <a data-toggle="tab" href="#tab-eg2-2" class="btn-pill btn-wide mr-1 ml-1  btn btn-outline-alternate btn-sm">Examen Ginecológico</a>
+                    <a data-toggle="tab" href="#tab-eg2-3" class="btn-pill btn-wide  mr-1 ml-1 btn btn-outline-alternate btn-sm">Examen Neurológico</a>
+                    <a data-toggle="tab" href="#tab-eg2-4" class="btn-pill btn-wide  mr-1 ml-1 btn btn-outline-alternate btn-sm">Rev. por Sistemas</a>
+                    <a data-toggle="tab" href="#tab-eg2-5" class="btn-pill btn-wide  mr-1 ml-1 btn btn-outline-alternate btn-sm">Prescripción</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab-eg2-0" role="tabpanel">
+                    <div class="form-row">
+                        <label class="font-weight-bold">Historia</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <span>
+                                @HistoriaProblema
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Síntomas</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @Sintomas
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Diagnóstico</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @Diagnostico
+                            </p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary text-white">
+                        Editar <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+
+
+                <div class="tab-pane" id="tab-eg2-1" role="tabpanel">
+                    @if(@Model.Consulta.ExamenFisico == null)
+                    {
+                        <div class="text-center">
+                            <h6 class="text-gray">No hay registros</h6>
+                            <br>
+                            <a asp-controller="Consultas" asp-action="CrearExamenFisico" asp-route-consultaId="@Model.Consulta.Id" class="btn btn-primary text-white">Crear Expediente <i class="fas fa-plus"></i></a>
+                        </div>
+                    }
+                    else 
+                    {
+                    <div class="form-row">
+                        <label class="font-weight-bold">Temperatura</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @Temperatura 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="font-weight-bold">Frecuencia cardíaca</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @FrecuenciaCardiaca
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Frecuencia respiratoria</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @FrecuenciaRespiratoria
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Saturación de oxígeno</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @SaturacionOxigeno
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Presión arterial brazo derecho</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @PresionArterialDer
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Presión arterial brazo izquierdo</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @PresionArterialIzq
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Observaciones o texto adicional</label> &nbsp; &nbsp;
+                        <div class="col-md-12">
+                            <p>
+                                @Observaciones
+                            </p>
+                        </div>
+                    </div>
+
+                    <a asp-controller="Consultas" asp-action="ModificarExamenFisico" asp-route-consultaId="@Model.Consulta.Id" class="btn btn-primary text-white">
+                        Editar <i class="fas fa-edit"></i>
+                    </a>
+                    }
+                </div>
+
+
+                <div class="tab-pane" id="tab-eg2-2" role="tabpanel">
+                    <div class="form-row">
+                        <label class="font-weight-bold">Examen Ginecológico</label> &nbsp; &nbsp;
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                            <div>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </button> 
+                        </a>
+                        <div class="col-md-12">
+                            <p>
+                                -- Informacion -- 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab-eg2-3" role="tabpanel">
+                    <div class="form-row">
+                        <label class="font-weight-bold">Examen Neurológico</label> &nbsp; &nbsp;
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                            <div>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </button> 
+                        </a>
+                        <div class="col-md-12">
+                            <p>
+                                -- Informacion -- 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab-eg2-3" role="tabpanel">
+                    <div class="form-row">
+                        <label class="font-weight-bold">Examen Neurológico</label> &nbsp; &nbsp;
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                            <div>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </button> 
+                        </a>
+                        <div class="col-md-12">
+                            <p>
+                                -- Informacion -- 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab-eg2-4" role="tabpanel">
+                    <div class="form-row">
+                        <label class="font-weight-bold">Sistema cardiopulmonar</label> &nbsp; &nbsp;
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                            <div>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </button> 
+                        </a>
+                        <div class="col-md-12">
+                            <p>
+                                -- Informacion -- 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Sistema osteoarticular</label> &nbsp; &nbsp;
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                            <div>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </button> 
+                        </a>
+                        <div class="col-md-12">
+                            <p>
+                                -- Informacion -- 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="font-weight-bold">Sistema hematologico</label> &nbsp; &nbsp;
+                        <a asp-action="" asp-controller="" asp-route-id=""> 
+                            <div>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </button> 
+                        </a>
+                        <div class="col-md-12">
+                            <p>
+                                -- Informacion -- 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab-eg2-5" role="tabpanel">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold">Medicamento</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ingrese Medicamento..."/>
+                            </div>
+                            <label class="font-weight-bold">Cantidad</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ingrese Cantidad..."/>
+                            </div>
+                            <label class="font-weight-bold">Indicaciones</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ingrese Indicaciones..."/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="mb-0 table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Medicamento</th>
+                                        <th>Cantidad</th>
+                                        <th>Indicaciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Acetaminofen 100mg</td>
+                                        <td>10</td>
+                                        <td>tomar 2 cada 8 horas</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* <div class="d-block text-right card-footer">
+            <a href="javascript:void(0);" class="btn-wide btn btn-success">Save</a>
+        </div> *@
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $("#historiaproblema").click(function(){
+            $
+        });
+
+        
+    </script>
+}

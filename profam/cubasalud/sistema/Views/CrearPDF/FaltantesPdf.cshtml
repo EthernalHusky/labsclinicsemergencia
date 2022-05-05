@@ -1,0 +1,44 @@
+ @{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+
+}
+
+@model IEnumerable<Database.Shared.Models.Producto>
+
+@* <style>
+         tr { page-break-inside: avoid;}
+</style> *@
+                <img width="40"  src="/assets/images/farmamestlogo.png" alt="">
+                       <div class="text-right" style="font-size: 12px;">
+                            <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+                            <br/>   
+                        </div>
+                
+                    <table class="table">
+                        <thead>
+                            <tr >
+                               
+                                <th>Nombre Producto</th>
+                                <th>Codigo Referencia</th>
+                                <th>Stock</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr >
+                                    <td>@item.NombreProducto</td>
+                                    <td>@item.CodigoReferencia</td>
+                                    <td>@item.Stock</td>
+                                    <td>@item.Precio</td>
+                                </tr>
+                                
+                            }
+                        </tbody>
+                    </table>
+                

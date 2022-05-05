@@ -1,0 +1,51 @@
+ @{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+
+}
+
+@model IEnumerable<Database.Shared.Models.Empleado>
+
+                <img width="40"  src="/assets/images/farmamestlogo.png" alt="">
+                       <div class="text-right" style="font-size: 12px;">
+                            <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+                            <br/>   
+                        </div>
+               
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Direccion</th>
+                            <th>Edad</th>
+                            <th>Telefono</th>
+                            <th>Dpi</th>
+                            <th>Nit</th>
+                            <th>Estado Civil</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Apellido</td>
+                                <td>@item.Direccion</td>
+                                <td>@item.Edad</td>
+                                <td>@item.Telefono</td>
+                                <td>@item.Dpi</td>
+                                <td>@item.Nit</td>
+                                <td>@item.EstadoCivil</td>
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+         

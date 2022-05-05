@@ -1,0 +1,382 @@
+
+@model sistema.Models.VentaClinicaBaseViewModel
+
+@{
+    ViewData["Title"] = "Nueva Venta";
+}
+
+
+@await Html.PartialAsync("_MensajeExito")
+
+<button type="button" class="btn btn-primary float-left" data-toggle="modal" onclick="LimpiarModal()" data-target=".bd-example-modal-lg">Generar Venta</button>
+<br><br> <br>
+
+<div class="radio-toolbar">
+    <input type="radio" id="radioProductos" name="radiocoti" value="productos" checked>
+    <label for="radioProductos">Productos</label>
+
+    <input type="radio" id="radioServicios" name="radiocoti" value="servicios">
+    <label for="radioServicios">Servicios</label>
+</div>
+
+<div class="col-md-12" id="formproductos">
+    <div class="position-relative form-group">
+        <input placeholder="Buscar por código de referencia" class="form-control" id="buscartxt" type="text" />
+    </div>
+</div>
+
+<div class="col-md-12" id="formservicios" style="display: none">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button onclick="AgregarServicio()"  class="btn btn-success">Agregar</button>
+            </div>
+            <select class="form-control select2bs4" style="width: 80%;" id="servicioitems">
+                     
+            </select>
+        </div>
+</div>
+
+<br>
+
+
+@await Html.PartialAsync("_VentaClinicaForm")
+
+
+@section Scripts
+{
+<script src="~/js/FuncionesVentaClinica.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script type="text/javascript" src="~/js/moment.min.js"></script>
+<script type="text/javascript" src="~/js/daterangepicker.js"></script>
+<script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script>
+    // A $( document ).ready() block.
+    $( document ).ready(function() {
+        $.ajax({
+            method: "GET",
+            dataType: 'json',
+            url: '/VentaServicio/ObtenerListadoServicios',
+            traditional: true,
+            success: function (data, state) {
+                console.log(data);
+
+                data.forEach(el => {
+                var html = '<option value="'+el.id+'">'+el.nombreServicio+'</option>'
+                $('#servicioitems').append(html);
+                });
+
+            //$('#buscarcotitxt').trigger('change');
+
+            },
+            error: function (data) {
+                console.log(data);
+            }
+
+        });
+    });
+
+    $(function(){
+        $("#servicioitems").empty();
+
+        $('.select2').select2({
+            tags: true
+        });
+        
+    $('.select2bs4').select2({
+      theme: 'bootstrap4',
+      tags: true,
+    });
+
+        $('#reservationtime').daterangepicker({
+                    timePicker: true,
+                    timePickerIncrement: 30,
+                    singleDatePicker: true,
+                    locale: {
+                        format: 'MM/DD/YYYY hh:mm A'
+                    }
+        });
+    });
+
+    function AgregarServicio()
+    {
+         var codigo = document.getElementById('servicioitems').value;
+         var servicio = BuscarServicioByCodigo(codigo);
+
+         console.log(servicio);
+    }
+
+    function BuscarServicioByCodigo(codigo)
+    {
+        var datos = {"id" : codigo }
+
+        return $.ajax({
+            method: "GET",
+            data : datos,
+            dataType: 'json',
+            url: '/Servicio/RetornarServicios',
+            traditional: true,
+            success: function (data, state) {
+                agregarATablaServicio(data);
+            },
+            error: function (data) {
+            }
+
+        });
+
+    }
+
+    $('input[type="radio"]').click(function(){
+        if ($(this).is(':checked')){
+            if($(this).val() === "productos"){
+                document.getElementById("formservicios").style.display = "none";
+                document.getElementById("formproductos").style.display = "block";
+            }
+            else
+            {
+                document.getElementById("formservicios").style.display = "block";
+                document.getElementById("formproductos").style.display = "none";
+            }
+        }
+    });
+
+
+    function agregarATablaServicio(data) {
+    //total= total + data.precio;
+    total = 0.00;
+    total2 = 0.00;
+    total3 = 0.00;
+
+
+    var htmlTags = '<tr style="background-color:rgba(255,211,105,0.5);"> <td> ' + data.id + '</td>' +
+        '<td> ' + data.nombreServicio + ' </td>' +
+        '<td class="cantidad-fila" ><input type="text" onchange="editarValorFila(this)" style="background-color:rgba(255,211,105,0.5);" value="1" class="form-control "></td>' +
+        '<td class="precio-fila">' +
+        '<select name=""  class="form-control selectpreciosventa" style="background-color:rgba(255,211,105,0.5);" onchange="escogerPrecio(this)">' +
+        // '<option value="' + data.precio.toFixed(2) + '">Precio al Publico - Q' + data.precio.toFixed(2) + '</option>' +
+        // '<option value="' + data.precio_2.toFixed(2) + '">Precio mayorista - Q' + data.precio_2.toFixed(2) + '</option>' +
+        // '<option value="' + data.precio_3.toFixed(2) + '">Precio de fardo - Q' + data.precio_3.toFixed(2) + '</option>' +
+        // '<option value="' + data.precio_4.toFixed(2) + '">Precio docena - Q' + data.precio_4.toFixed(2) + '</option>' +
+      
+        '<option value="' + data.precio.toFixed(2) + '"> Precio público - Q' + data.precio.toFixed(2) + '</option>' +
+        // '<option value="' + data.precio_6.toFixed(2) + '">Precio caja - Q' + data.precio_6.toFixed(2) + '</option>' +
+        '</select>' +
+        '</td>' +
+        '<td class="porcentaje"><input type="text" value="0" class="form-control" style="background-color:rgba(255,211,105,0.5);" onchange="editarPorcentaje(this)"></td>' +
+        '<td class="desc-t">0.00</td>' +
+        '<td class="subtotal-t">' + data.precio.toFixed(2) + '</td>' +
+        '<td class="total-t">' + data.precio.toFixed(2) + '</td>' +
+        '<td><button  type="button"  class="btn btn-danger btn-sm" onclick="eliminarFila(this)">Quitar</button></td>' +
+        '<td style="display:none;" class="nuevo-detalle"> ' + data.id + ' </td>' +
+        '<td style="display:none;" class="nuevo-detalle">S</td></tr>';
+
+
+    //var total= '<span>'+sumatotal.toFixed(2)+'</span>'
+
+    $('#contentdetalle').append(htmlTags);
+
+
+    actualizarPreciosVenta();
+
+    // Es para que muestre un mensaje de alerta al tener exito en buscar el producto y agregar.
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "100",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "show",
+        "hideMethod": "hide"
+    };
+    toastr.success('Producto agregado!');
+}
+
+
+
+    
+</script>
+}
+
+@section Modales
+{
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Forma De Pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <div class="form-row">
+                                  @* <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">Forma de pago</label>
+                                            <select name="" id="selectformapago" class="form-control">
+                                                <option value="Efectivo">Efectivo</option>
+                                                <option value="Tarjeta de debito">Tarjeta de debito</option>
+                                                <option value="Tarjeta de credito">Tarjeta de credito</option>
+                                                <option value="Cheque">Cheque</option>
+
+                                            </select>
+                                        </div>
+                                    </div> *@
+                                    <div class="col-md-6">
+                                        <label>Forma de Pago</label>
+                                        <select class="form-control select2bs4 selectpagos" style="width: 100%;"
+                                            asp-items="@Model.ListaFormaPagos" id="formapagoselect-venta">
+                                        </select>
+    
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">Monto Pagado</label>
+                                            <input placeholder="Monto Pagado" id="montotxt" type="number" class="form-control">
+                                        
+                                        </div>
+                                    </div>
+                                    <br/>
+                                   
+                                    
+                                   
+                        </div>
+                   
+                         <div class="text-center" style="font-size: 18px; text-align: center;">
+                                        
+                                        
+
+                                        <div class="">
+                                        
+                                            <div class="tabel-text-total">
+                                            <span>Total:</span>
+                                            </div>
+
+                                            <div class="label-total-t">
+                                            <span style="font-weight: 800;" id="total-a-pagar2">0.00</span>
+                                            </div>
+                                        
+                                        </div>
+
+                                         <div class="">
+                                        
+                                            <div class="tabel-text-total">
+                                            <span>Saldo:</span>
+                                            </div>
+
+                                            <div class="label-total-t">
+                                            <span style="font-weight: 800;" id="total-saldo-venta">0.00</span>
+                                            </div>
+                                        
+                                        </div>
+
+                                        <div class="">
+                                            <div class="">
+                                                <span>Vuelto:</span>
+                                            </div>
+                                            <div class="">
+                                                <span  style="font-weight: 800;" id="vuelto-n">0.00</span>                                                
+                                            </div>
+                                        </div>
+                             </div> 
+                   
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarVentaClinica()">Listo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* -------------------------------------- Modal del envio ----------------------------------------------- *@
+
+<div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Forma De Pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <div class="form-row">
+                                  <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">Forma de pago</label>
+                                            <select name="" id="selectformapago" class="form-control">
+                                                <option value="Efectivo">Efectivo</option>
+                                                <option value="Tarjeta de debito">Tarjeta de debito</option>
+                                                <option value="Tarjeta de credito">Tarjeta de credito</option>
+                                                <option value="Cheque">Cheque</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">Monto Pagado</label>
+                                            <input placeholder="Monto Pagado" id="montotxt" type="number" class="form-control">
+                                        
+                                        </div>
+                                    </div>
+                                    <br/>
+                                   
+                                    
+                                   
+                        </div>
+                   
+                         <div class="text-center" style="font-size: 18px; text-align: center;">
+                                        
+                                        <div class="">
+                                            <div class="">
+                                                <span>Vuelto:</span>
+                                            </div>
+                                            <div class="">
+                                                <span  style="font-weight: 800;" id="vuelto-n">0.00</span>                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="">
+                                        
+                                            <div class="tabel-text-total">
+                                            <span>Total:</span>
+                                            </div>
+
+                                            <div class="label-total-t">
+                                            <span style="font-weight: 800;" id="total-a-pagar2">0.00</span>
+                                            </div>
+                                        
+                                        </div>
+                             </div> 
+                        </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarVentaFarmacia()">Listo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+
+@section css
+{
+    <link href="~/css/daterangepicker.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <link href="~/css/radiobutton.css" rel="stylesheet">
+
+}

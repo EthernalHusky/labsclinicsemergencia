@@ -1,0 +1,15 @@
+@model sistema.Models.VentaServicioBaseViewModel
+
+@{
+    ViewData["Title"] = "Nuevo Venta Servicio";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+
+@await Html.PartialAsync("_VentaServicioForm")
+
+
+@section Scripts
+{
+<script src="~/js/FuncionesVentaServicio.js"></script>
+}

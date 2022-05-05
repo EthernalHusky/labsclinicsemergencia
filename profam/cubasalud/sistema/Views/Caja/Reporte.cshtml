@@ -1,0 +1,80 @@
+@model sistema.Models.ReporteCajaFarmaciaViewModel
+
+@{
+    Layout = "_HojaLayout";
+    decimal TotalCierre = 0m;
+    
+    var Desde = Convert.ToDateTime(@Model.Desde).ToString("MM/dd/yyyy");
+    var Hasta = Convert.ToDateTime(@Model.Hasta).ToString("MM/dd/yyyy");
+
+}
+
+	<div>
+		<div class="text-center" style="border: 1px black solid;">
+			<h4> Reporte de Caja Farmacia </h4>
+			<h6>RED OWL SOFTWARE</h6>
+		</div>
+	</div>
+	<br>
+     <div>
+		<span class="font-weight-bold">FECHA Y HORA DE EMISIÓN  </span>
+		<span> @DateTime.Now</span>
+	</div>
+     <div>
+		<span class="font-weight-bold">DESDE</span>
+		<span> @Desde </span>
+	</div>
+     <div>
+		<span class="font-weight-bold">HASTA</span>
+		<span> @Hasta </span>
+	</div>
+    <br>
+  
+   
+    <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha Apertura</th>
+                        <th>Monto Apertura</th>
+                        <th>Gastos</th>
+                        <th>Ingresos</th>
+                        <th>Total Cierre</th>
+                        <th>Resp. Apertura</th>
+                        <th>Resp. Cierre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model.Cajas)
+                    {
+                        
+                            var personaApertura = item.ResponsableApertura == null ? "" : item.ResponsableAperturaText;
+                            var personaCierre = item.ResponsableCierre == null ? "" : item.ResponsableCierreText;
+
+                            <tr>
+                                <td>@item.FechaApertura</td>
+                                <td>@item.MontoApertura</td>
+                                <td>@item.DetalleCajas.Sum(x => x.Gasto)</td>
+                                <td>@item.DetalleCajas.Sum(x => x.Ingreso)</td>
+
+                                @{
+                                    decimal suma1 = item.DetalleCajas.Sum(x=>x.Ingreso - x.Gasto);
+                                    decimal  montoap = item.MontoApertura;
+
+                                    decimal res = suma1 + montoap;
+                                    TotalCierre += res;
+                                }
+
+                                <td>@res</td>
+                                <td>@personaApertura</td>
+                                <td>@personaCierre</td>
+                            </tr>
+                    }
+
+                </tbody>
+    </table>
+    <br>
+
+ <div>
+		<span class="font-weight-bold">Monto</span>
+		<span> Q @TotalCierre</span>
+	</div>

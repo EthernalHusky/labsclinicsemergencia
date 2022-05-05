@@ -1,0 +1,1439 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="Build whatever layout you need with our Architect framework.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    
+
+<link href="~/main.css" rel="stylesheet">
+<link href="~/css/select2.min.css" rel="stylesheet">
+<link href="~/css/select2-bootstrap4.min.css" rel="stylesheet">
+<link href="~/css/site.css" rel="stylesheet">
+
+@RenderSection("css", required: false)
+
+</head>
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header" >
+        <div class="app-header header-shadow header-text-dark" style="background: #3AAADE">
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>    <div class="app-header__content">
+                <div class="app-header-left">
+                    @* <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="Type to search">
+                            <button class="search-icon"><span></span></button>
+                        </div>
+                        <button class="close"></button>
+                    </div> *@
+                    @* <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-database"> </i>
+                                Statistics
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-edit"></i>
+                                Projects
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                    </ul>         *@
+                    </div>
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                            <button type="submit" class=" btn btn-danger btn-sm ">Desconectarse</button>
+                                             </form>
+                                        @* <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="/assets/images/avatars/2.jpg" alt="">
+                                            
+                                                <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                            </a>
+                                            <div tabindex="0" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                            <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
+                                            </form>
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div> *@
+                                    </div>
+
+
+
+                                    @* <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="p-0 btn">
+                                            <img width="45" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                             </form>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div>
+                                    </div> *@
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                       
+                                        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                                         RED OWL SOFTWARE <br/>
+                                        @User.Identity.Name<br/>
+                                        </a>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    @* <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                    </button> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>  
+
+       
+        <div class="app-main">
+                <div class="app-sidebar sidebar-shadow sidebar-text-dark" style="background: #3AAADE">
+                    <div class="app-header__logo">
+                        <div class="logo-src"></div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    @* <div class="app-header__menu">
+                        <span>
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-pills"></i>
+                                        Categorías
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Categoria">
+                                                <i class="metismenu-icon">
+                                                </i>Crear Categoría
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Categoria">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Categorías
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                            </button>
+                        </span>
+                    </div>     *@
+                    <div class="scrollbar-sidebar" style="overflow-y: scroll;">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu" >
+                                @* <li class="app-sidebar__heading">Productos</li> *@
+                                @* <li>
+                                    <a asp-action="Nuevo" asp-controller="Productos">
+                                        <i class="metismenu-icon fas fa-capsules"></i>
+                                        Agregar Nuevo Producto
+                                    </a>
+                                </li> *@
+                                @* <li class="app-sidebar__heading">Dashboard</li> *@
+                                
+                                @* <li>
+                                    <a asp-action="VentasPorMesesFarmacia" asp-controller="Dashboard">
+                                        <i class="metismenu-icon fas fa-chart-pie"></i>
+                                        Ventas por Mes Farmacia
+                                    </a>
+                                </li>
+
+                                  <li>
+                                    <a asp-action="VentasPorMesesClinica" asp-controller="Dashboard">
+                                        <i class="metismenu-icon fas fa-chart-pie"></i>
+                                        Ventas por Mes Clinica
+                                    </a>
+                                </li> *@
+
+
+                                <li class="app-sidebar__heading">Clínica</li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-calendar-day"></i>
+                                        Citas
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        @* <li>
+                                            <a asp-action="Index" asp-controller="Cita">
+                                                <i class="metismenu-icon"></i>
+                                                Calendario
+                                            </a>
+                                        </li> *@
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Cita">
+                                                <i class="metismenu-icon">
+                                                </i>Citas Lista
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="CalendarioLineal" asp-controller="Cita">
+                                                <i class="metismenu-icon">
+                                                </i>Calendario
+                                            </a>
+                                        </li>
+                                          <li>
+                                            <a asp-action="NoAsistidas" asp-controller="Cita">
+                                                <i class="metismenu-icon">
+                                                </i>No Asistidas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="CitasFinalizadas" asp-controller="Cita">
+                                                <i class="metismenu-icon">
+                                                </i>Citas Finalizadas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-notes-medical"></i>
+                                        Consultas
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                        
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Index" asp-controller="Consultas">
+                                                <i class="metismenu-icon">
+                                                </i>Consultas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-concierge-bell"></i>
+                                        Servicios
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Servicio">
+                                                <i class="metismenu-icon">
+                                                </i>Agregar Servicio
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Servicio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Servicios
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-coins"></i>
+                                        Venta Servicios
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="VentaServicio">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva Venta de Servicio
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="VentaServicio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Ventas de Servicios
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ReporteVentasServiciosFechas" asp-controller="VentaServicio">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte de Ventas de Servicios
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+
+
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-tablets"></i>
+                                        Farmacia Clínica
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                         <li>
+                                            <a asp-action="MedicamentosClinica" asp-controller="Productos">
+                                                <i class="metismenu-icon"></i>
+                                                Medicamentos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="InsumosMedicosClinica" asp-controller="Productos">
+                                                <i class="metismenu-icon"></i>
+                                                Insumos médicos
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="ListaFaltantesClinica" asp-controller="Productos">
+                                                <i class="metismenu-icon"></i>
+                                                Ver faltantes
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="VencidosClinica" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Vencidos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="ProximosAVencerClinica" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Próximos a vencer
+                                            </a>
+                                        </li>
+
+                                       
+                                        @* <li>
+                                            <a asp-action="CitasFinalizadas" asp-controller="Cita">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Productos Cuadricula
+                                            </a>
+                                        </li> *@
+                                    </ul>
+                                </li>
+
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-money-bill-wave"></i>
+                                        Ventas
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="NuevaVentaClinica" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva Venta
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaVentasClinica" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Ventas
+                                            </a>
+                                        </li>
+                                         @* <li>
+                                            <a asp-action="ReporteVentasFechas" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte ventas
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ReporteFechas" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Reportar Utilidad Por Fechas
+                                            </a>
+                                        </li> *@
+                                    </ul>
+                                </li>
+
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-print"></i>
+                                        Cotización
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="" asp-controller="">
+                                                <i class="metismenu-icon">
+                                                </i> -
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-briefcase-medical"></i>
+                                        Servicios para médicos
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="" asp-controller="">
+                                                <i class="metismenu-icon">
+                                                </i> -
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-heartbeat"></i>
+                                        Pacientes
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Pacientes">
+                                                <i class="metismenu-icon">
+                                                </i> Agregar Paciente
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Pacientes">
+                                                <i class="metismenu-icon">
+                                                </i> Pacientes
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="" asp-controller="">
+                                                <i class="metismenu-icon">
+                                                </i> Pacientes Internados(Pendiente)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-cash-register"></i>
+                                        Caja
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Aperturar" asp-controller="CajaClinica">
+                                                <i class="metismenu-icon">
+                                                </i> Caja clínica
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="app-sidebar__heading">Farmacia</li>
+
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-truck-loading"></i>
+                                        Traslados
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="TrasladosBodegaAClinica">
+                                                <i class="metismenu-icon"></i>
+                                                Bodega a Clínica
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="TrasladosBodegaAFarmacia">
+                                                <i class="metismenu-icon"></i>
+                                                Bodega a Farmacia
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+                                @if(!User.IsInRole("Mensajero"))
+                                {
+
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-capsules"></i>
+                                        Productos
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="MedicamentosFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon"></i>
+                                                Medicamentos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="InsumosMedicosFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Insumos médicos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaFaltantesFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Faltantes
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="VencidosFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Vencidos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="ProximosAVencerFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Próximos a vencer
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+                                
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-boxes"></i>
+                                        Bodega
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="MedicamentosBodega" asp-controller="Productos">
+                                                <i class="metismenu-icon"></i>
+                                                Medicamentos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="InsumosMedicosBodega" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Insumos médicos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="VencidosFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Vencidos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="ProximosAVencerFarmacia" asp-controller="Productos">
+                                                <i class="metismenu-icon">
+                                                </i>Próximos a vencer
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-pills"></i>
+                                        Categorías
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Categoria">
+                                                <i class="metismenu-icon">
+                                                </i>Crear Categoría
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Categoria">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Categorías
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+
+
+                                 @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-user-md"></i>
+                                        Cotizacion
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Cotizacion">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva Cotizacion
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="NoConfirmadas" asp-controller="Cotizacion">
+                                                <i class="metismenu-icon"></i>No confirmadas
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="Confirmadas" asp-controller="Cotizacion">
+                                                <i class="metismenu-icon"></i>Confirmadas
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="Backup" asp-controller="Cotizacion">
+                                                <i class="metismenu-icon">
+                                                </i>Backup Cotizaciones
+                                            </a>
+                                        </li> 
+                                        <li>
+                                            <a asp-action="ReporteEmpleados" asp-controller="Reportes">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte de Cotizaciones
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-user-friends"></i>
+                                        Clientes
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Cliente">
+                                                <i class="metismenu-icon">
+                                                </i>Agregar Cliente
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Cliente">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Cliente
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ReporteClientes" asp-controller="Reportes">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte de Clientes Existentes
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-money-bill-wave"></i>
+                                        Ventas
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva Venta
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaVentasFarmacia" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Ventas
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ReporteVentasFechas" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte ventas
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ReporteFechas" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Reportar Utilidad Por Fechas
+                                            </a>
+                                        </li>
+                                         
+                                    </ul>
+                                </li>
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-file-invoice-dollar"></i>
+                                        Compras
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Compra">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva Compra
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaTodas" asp-controller="Compra">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Todas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaPeticiones" asp-controller="Compra">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Peticiones
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaComprados" asp-controller="Compra">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Comprados
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaRecepciones" asp-controller="Compra">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Recepciones
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ReporteComprasFechas" asp-controller="Compra">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Reporte de compras
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                
+@* 
+
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-ambulance"></i>
+                                        Envios
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                         <li>
+                                            <a asp-action="ListaMisPedidos" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Mis Pedidos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Pedidos y Envios
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ListaPedidos" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Pedidos
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ListaRechazados" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Envios Rechazados
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ListaEnRuta" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Envios En Ruta
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaLiquidados" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Envios Realizados
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ListaMisPedidosEntregadosAdmin" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Envios Entregados
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ReporteEnviosFechas" asp-controller="Venta">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte Envios
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+                                 @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-ambulance"></i>
+                                        Rutas
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Ruta">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva ruta
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Ruta">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Rutas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-ambulance"></i>
+                                        Caja
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Aperturar" asp-controller="Caja">
+                                                <i class="metismenu-icon">
+                                                </i>Caja Farmacia
+                                            </a>
+                                        </li>
+                                     
+                                    </ul>
+                                </li>
+                                 @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Gastos
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Gasto">
+                                                <i class="metismenu-icon">
+                                                </i>Nuevo Gasto
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Gasto">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Gastos
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+                                @* <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Categorias Gastos
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="CategoriaGasto">
+                                                <i class="metismenu-icon">
+                                                </i>Nueva Categoria
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="CategoriaGasto">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Categorias
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> *@
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Usuario
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Identity/Account/NuevoUsuario">
+                                                <i class="metismenu-icon">
+                                                </i>Crear Usuario
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Account">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Usuarios
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                }
+                                else if(User.IsInRole("Mensajero"))
+                                {
+                                                          <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-ambulance"></i>
+                                        Envios
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                         <li>
+                                            <a asp-action="ListaMisPedidos" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Mis Pedidos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="ListaMisPedidosEnRuta" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Envios En Ruta
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a asp-action="ListaMisPedidosEntregados" asp-controller="Envio">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Envios Entregados
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                }
+                                @* <li>
+                                    <a href="tables-regular.html">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Tables
+                                    </a>
+                                </li> *@
+                                @* <li class="app-sidebar__heading">Compras</li>
+                                <li>
+                                    <a href="dashboard-boxes.html">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Nuevo Registro
+                                    </a>
+                                </li>
+                                                                <li>
+                                    <a href="dashboard-boxes.html">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Ver Registro de Compras
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">Envíos</li>
+                                <li>
+                                    <a href="forms-controls.html">
+                                        <i class="metismenu-icon pe-7s-mouse">
+                                        </i>Nuevo Envío
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="forms-layouts.html" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-eyedropper">
+                                        </i>Ver Envíos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="forms-validation.html">
+                                        <i class="metismenu-icon pe-7s-pendrive">
+                                        </i>Forms Validation
+                                    </a>
+                                </li> *@
+                                @* <li class="app-sidebar__heading">Charts</li>
+                                <li>
+                                    <a href="charts-chartjs.html">
+                                        <i class="metismenu-icon pe-7s-graph2">
+                                        </i>ChartJS
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">PRO Version</li>
+                                <li>
+                                    <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/" target="_blank">
+                                        <i class="metismenu-icon pe-7s-graph2">
+                                        </i>
+                                        Upgrade to PRO
+                                    </a>
+                                </li> *@
+
+                                <li class="app-sidebar__heading">Laboratorio Clínico</li>
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-user-md"></i>
+                                        Categorias
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        @* <li>
+                                            <a asp-action="" asp-controller="">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                    Nueva consulta
+                                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                            </a>
+                                        </li> *@
+                                        <li>
+                                            <a asp-action="NuevaCategoria" asp-controller="LaboratorioClinico">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Crear Categoría Examen
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                        </li>
+
+                                       
+                                        <li>
+                                            <a asp-action="ListaCategorias" asp-controller="LaboratorioClinico">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Ver Categorías Examen
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                 <li>
+                                    <a asp-action="ListaExamenes" asp-controller="LaboratorioClinico">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Lista Examenes
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                     @* <a asp-action="ListaExamenesRealizados" asp-controller="LaboratorioClinico">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Examenes Clínicos
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a> *@
+
+                                     <li>
+                                        <a href="#">
+                                            <i class="metismenu-icon fas fa-user-md"></i>
+                                            Examenes Clínicos
+                                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                        </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="RealizarExamenClinico" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                Nueva consulta
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="ListaExamenesRealizados" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                Todos
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="ExamenesEnProceso" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                En proceso
+                                            </a>
+                                        </li>
+                                        
+                                         <li>
+                                            <a asp-action="ExamenesCancelados" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                Cancelados
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="ExamenesFinalizados" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                Finalizados
+                                            </a>
+                                        </li>
+
+                                         <li>
+                                            <a asp-action="ExamenesEnRevision" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                En Revision
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a asp-action="ExamenesSolicitados" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon fas fa-hospital"></i>
+                                                Solicitados
+                                            </a>
+                                        </li>
+
+                                       
+                                        @* <li>
+                                            <a asp-action="ListaCategorias" asp-controller="LaboratorioClinico">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Ver Categorías Examen
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                        </li> *@
+                                    </ul>
+                                </li>
+                                    
+                                </li>
+
+                                  <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-ambulance"></i>
+                                        Caja
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Aperturar" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon">
+                                                </i>Caja Laboratorio
+                                            </a>
+                                        </li>
+                                     
+                                    </ul>
+                                </li>
+
+                                 <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-ambulance"></i>
+                                        Ventas
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="VentasLabLista" asp-controller="LaboratorioClinico">
+                                                <i class="metismenu-icon">
+                                                </i> Lista Ventas
+                                            </a>
+                                        </li>
+                                     
+                                    </ul>
+                                </li>
+
+                                <li class="app-sidebar__heading">Recursos Humanos</li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-user-md"></i>
+                                        Personal
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Empleado">
+                                                <i class="metismenu-icon">
+                                                </i>Agregar Personal
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Empleado">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Personal
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ReporteEmpleados" asp-controller="Reportes">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte de Personal Existente
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="app-sidebar__heading">Proveedores</li>
+
+                                                             <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon fas fa-hospital"></i>
+                                        Proveedores
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Nuevo" asp-controller="Proveedor">
+                                                <i class="metismenu-icon">
+                                                </i>Agregar Proveedor
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Lista" asp-controller="Proveedor">
+                                                <i class="metismenu-icon">
+                                                </i>Ver Proveedores
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="ReporteProveedores" asp-controller="Reportes">
+                                                <i class="metismenu-icon">
+                                                </i>Reporte de Proveedores Existentes
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+                
+
+
+
+
+                <div class="app-main__outer">
+                    <div class="app-main__inner">
+
+                        @* <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
+                                    <span>Layout</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">
+                                    <span>Grid</span>
+                                </a>
+                            </li>
+                        </ul> *@
+
+                        <div class="tab-content">
+                            @* <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Grid Rows</h5>
+                                        <form class="">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Email</label><input name="email" id="exampleEmail11" placeholder="with a placeholder" type="email" class="form-control"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group"><label for="examplePassword11" class="">Password</label><input name="password" id="examplePassword11" placeholder="password placeholder" type="password"
+                                                                                                                                                             class="form-control"></div>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative form-group"><label for="exampleAddress" class="">Address</label><input name="address" id="exampleAddress" placeholder="1234 Main St" type="text" class="form-control"></div>
+                                            <div class="position-relative form-group"><label for="exampleAddress2" class="">Address 2</label><input name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group"><label for="exampleCity" class="">City</label><input name="city" id="exampleCity" type="text" class="form-control"></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="position-relative form-group"><label for="exampleState" class="">State</label><input name="state" id="exampleState" type="text" class="form-control"></div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="position-relative form-group"><label for="exampleZip" class="">Zip</label><input name="zip" id="exampleZip" type="text" class="form-control"></div>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Check me out</label></div>
+                                            <button class="mt-2 btn btn-primary">Sign in</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Inline</h5>
+                                        <div>
+                                            <form class="form-inline">
+                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group"><label for="exampleEmail22" class="mr-sm-2">Email</label><input name="email" id="exampleEmail22" placeholder="something@idk.cool" type="email"
+                                                                                                                                                                               class="form-control"></div>
+                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group"><label for="examplePassword22" class="mr-sm-2">Password</label><input name="password" id="examplePassword22" placeholder="don't tell!" type="password"
+                                                                                                                                                                                     class="form-control"></div>
+                                                <button class="btn btn-primary">Submit</button>
+                                            </form>
+                                            <div class="divider"></div>
+                                            <form class="">
+                                                <div class="position-relative form-check form-check-inline"><label class="form-check-label"><input type="checkbox" class="form-check-input"> Some input</label></div>
+                                                <div class="position-relative form-check form-check-inline"><label class="form-check-label"><input type="checkbox" class="form-check-input"> Some other input</label></div>
+                                            </form>
+                                            <div class="divider"></div>
+                                            <form class="form-inline">
+                                                <div class="position-relative form-group"><label for="exampleEmail33" class="sr-only">Email</label><input name="email" id="exampleEmail33" placeholder="Email" type="email" class="mr-2 form-control"></div>
+                                                <div class="position-relative form-group"><label for="examplePassword44" class="sr-only">Password</label><input name="password" id="examplePassword44" placeholder="Password" type="password" class="mr-2 form-control"></div>
+                                                <button class="btn btn-primary">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Grid</h5>
+                                        <form class="">
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Email</label>
+                                                <div class="col-sm-10"><input name="email" id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control"></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="examplePassword" class="col-sm-2 col-form-label">Password</label>
+                                                <div class="col-sm-10"><input name="password" id="examplePassword" placeholder="password placeholder" type="password" class="form-control"></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Select</label>
+                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control"></select></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
+                                                <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Text Area</label>
+                                                <div class="col-sm-10"><textarea name="text" id="exampleText" class="form-control"></textarea></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">File</label>
+                                                <div class="col-sm-10"><input name="file" id="exampleFile" type="file" class="form-control-file">
+                                                    <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                                </div>
+                                            </div>
+                                            <fieldset class="position-relative row form-group">
+                                                <legend class="col-form-label col-sm-2">Radio Buttons</legend>
+                                                <div class="col-sm-10">
+                                                    <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option one is this and that—be sure to include why it's great</label></div>
+                                                    <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option two can be something else and selecting it will deselect option
+                                                        one</label></div>
+                                                    <div class="position-relative form-check disabled"><label class="form-check-label"><input name="radio2" disabled="" type="radio" class="form-check-input"> Option three is disabled</label></div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="position-relative row form-group"><label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
+                                                <div class="col-sm-10">
+                                                    <div class="position-relative form-check"><label class="form-check-label"><input id="checkbox2" type="checkbox" class="form-check-input"> Check me out</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative row form-check">
+                                                <div class="col-sm-10 offset-sm-2">
+                                                    <button class="btn btn-secondary">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> *@
+
+                            @RenderBody()
+                        </div>
+                    </div>
+                    <div class="app-wrapper-footer">
+                        @* <div class="app-footer">
+                            <div class="app-footer__inner">
+                                <div class="app-footer-left">
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0);" class="nav-link">
+                                                Footer Link 1
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0);" class="nav-link">
+                                                Footer Link 2
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="app-footer-right">
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0);" class="nav-link">
+                                                Footer Link 3
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0);" class="nav-link">
+                                                <div class="badge badge-success mr-1 ml-0">
+                                                    <small>NEW</small>
+                                                </div>
+                                                Footer Link 4
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> *@
+
+                        @* <footer class="bg-light text-center text-lg-start">
+                            </br>
+                            <p> 
+                            Dirección: Farmacia FARMAMEST. </br> Zona 1 6ta av. Barrio San Antonio </br> 
+                            Calle Caserio Panca, Solola.
+                            </p>  
+                            </br>                                
+                        </footer> *@
+
+                    </div>    
+                    
+                </div>
+        </div>
+    </div>
+
+@RenderSection("Modales", required: false)
+
+<script type="text/javascript" src="~/js/jquery.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="~/js/select2.full.min.js"></script>
+<script type="text/javascript" src="~/assets/scripts/main.js"></script>
+
+
+@RenderSection("Scripts", required: false)
+
+</body>
+</html>

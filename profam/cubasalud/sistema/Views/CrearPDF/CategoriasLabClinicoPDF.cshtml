@@ -1,0 +1,36 @@
+@model IEnumerable<Database.Shared.Models.CategoriaLabClinico>
+
+ @{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+
+}
+
+
+    <div class="text-right" style="font-size: 12px;">
+        <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+        <br/>   
+    </div>
+              
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Ultima Modificacion</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Estado</td>
+                    <td>@item.UltimoUsuarioModificado</td>
+                </tr>
+            }
+        </tbody>
+    </table>

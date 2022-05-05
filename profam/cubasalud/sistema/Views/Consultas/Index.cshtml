@@ -1,0 +1,105 @@
+@* @using Database.Shared.Paginacion;
+@model PaginacionList<Database.Shared.Models.Producto>
+@using Microsoft.AspNetCore.Mvc.Rendering; *@
+
+@model sistema.Models.ConsultasViewModel
+
+@{
+    ViewData["Title"] = "Consultas";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+
+@* <div class="form-row">
+    <div class="col-12">
+        <a asp-action="NuevoFarmaciaMedicamentos" asp-controller="Productos" class="btn btn-danger">
+            Nuevo
+        </a>
+        <a asp-action="MedicamentosFarmaciaReporte" asp-controller="Productos" class="btn btn-danger" 
+        asp-route-terapeuticoId = "@Model.terapeuticoId" asp-route-currentFilter= "@Model.currentFilter">
+            Generar PDF &nbsp; <i class="fas fa-file-pdf"></i>
+        </a>
+    </div>
+</div> *@
+
+@* <br /> *@
+<form asp-action="Index" method="get">
+    <div class="form-row">
+        <div class="col-md-10">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <input type="submit" value="Buscar" class="btn btn-success">
+                </div>
+                @Html.TextBoxFor(a => a.buscar, new {@class = "form-control", @value="@Model.currentFilter", @placeholder="Buscar por paciente o por médico..."})
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+
+
+<div class="form-row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="mb-0 table table-hover ">
+                        <thead>
+                            <tr>
+                                <th>Fecha y hora de consulta</th>
+                                <th>Paciente</th>
+                                <th>Médico</th>
+                                <th>Especialidad</th>
+                                <th>Servicio</th>
+                                <th>Pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Consultas)
+                            {
+                                @* var grupo = item.GrupoTProducto == null ? "" : item.GrupoTProducto.NombreGrupoT; *@
+
+                                <tr>
+                                    <td>@item.FechaYHoraInicioConsulta</td>
+                                    <td>@item.Citas.ClienteText</td>
+                                    <td>@item.Citas.EmpleadoText</td>
+                                    <td>@item.Citas.EspecialidadText</td>
+                                    <td>@item.Citas.ServicioText</td>
+                                    <td>@item.EstadoPagoConsulta.Estado</td>
+                                    <td>
+                                        <a asp-action="Informacion" asp-controller="Consultas" asp-route-id="@item.Id" class="btn btn-primary">
+                                            <i class="fas fa-info-circle"></i> Info
+                                        </a>
+                                    </td>
+                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@{
+    var prevDisabled = !Model.Consultas.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Consultas.HasNextPage ? "disabled" : "";
+}
+
+<br />
+
+<a asp-action="MedicamentosFarmacia" asp-route-pageNumber="@(Model.Consultas.PageIndex - 1)"
+    asp-route-currentFilter="@Model.currentFilter" class="btn btn-danger btn-sm @prevDisabled">
+    Anterior
+</a>
+<a asp-action="MedicamentosFarmacia" asp-route-pageNumber="@(Model.Consultas.PageIndex + 1)"
+    asp-route-currentFilter="@Model.currentFilter" class="btn btn-danger btn-sm @nextDisabled" class="">
+    Siguiente
+</a>
+
+
+
+

@@ -1,0 +1,10 @@
+@model sistema.Models.ConsultasViewModel
+@{
+    ViewData["Title"] = "Iniciar Consulta";
+}
+
+    @await Html.PartialAsync("_MensajeExito")
+
+<form asp-controller="consultas" method="post">
+    @await Html.PartialAsync("_ConsultaForm")
+</form>

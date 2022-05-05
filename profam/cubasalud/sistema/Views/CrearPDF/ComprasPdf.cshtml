@@ -1,0 +1,50 @@
+ @{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+
+}
+
+@model IEnumerable<Database.Shared.Models.Compra>
+
+                <img width="40"  src="/assets/images/farmamestlogo.png" alt="">
+                       <div class="text-right" style="font-size: 12px;">
+                            <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+                            <br/>   
+                        </div>
+           
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fecha Compra</th>
+                            <th>Compra #</th>
+                            <th>ProveedorId</th>
+                            <th>NoComprobante</th>
+                            <th>Nombre Vendedor</th>
+                            <th>Fecha Recepcion</th>
+                            <th>Fecha Limite</th>
+                            <th>Gasto/Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.FechaCompra</td>
+                                <td>@item.Id</td>
+                                <td>@item.Proveedor.Nombre</td>
+                                <td>@item.NoComprobante</td>
+                                <td>@item.NombreVendedor</td>
+                                <td>@item.FechaRecepcion</td>
+                                <td>@item.FechaLimite</td>
+                                <td>Q @item.DetalleCompras.Sum(a=>a.PrecioTotal)</td>
+                                <td>@item.verEstado()</td>
+                               
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+          

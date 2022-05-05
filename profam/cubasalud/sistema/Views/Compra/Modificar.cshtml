@@ -1,0 +1,64 @@
+@model sistema.Models.CompraBaseViewModel
+
+@{
+    ViewData["Title"] = "Modifica Compra";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+@* solo aparece cuando tienen estado false nada mas, true las ignora. *@
+@if(Model.Compra.Estado != true)
+{
+<div class="position-relative form-group">
+    <button type="button" class="btn btn-primary" onclick="ModificarCompra(@Model.Compra.Id)">Guardar cambios</button>
+    <button type="button" class="btn btn-primary" onclick="CambiarAComprado(@Model.Compra.Id)">Generar compra</button>
+    <br><br>
+</div>
+}
+
+
+<form asp-controller="Compra" asp-action="Reporte" asp-route-CompraId="@Model.Compra.Id">
+    <button type="submit" class="btn btn-danger">Generar PDF</button>
+</form>
+
+@if (Model.Compra.Estado == false && Model.Compra.TipoCompraId == 1)
+{
+    <div class="col-md-12">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-success" id="agregarprodt" >Agregar</button>
+                </div>
+                <br><br>
+                <select class="form-control select2bs4" style="width: 80%;" asp-items="@Model.ListaProductosEInsumos" id="productoselecttxt"> </select>
+            </div>
+    </div>
+}
+
+
+@await Html.PartialAsync("_CompraForm");
+
+@section Scripts
+{
+     <script src="~/js/FuncionesCompra.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+
+    <script>
+        $('#fechalimite').daterangepicker({
+            timePicker: true,
+            singleDatePicker: true,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+                }
+        });
+        
+    </script>
+
+}
+
+@section css
+{
+    <link href="~/css/daterangepicker.css" rel="stylesheet">
+
+}

@@ -1,0 +1,238 @@
+@model sistema.Models.CajaBaseViewModel
+
+@{
+    Layout = "_HojaLayout";
+    decimal totalQVenta = 0.00m;
+    int totalVentas = 0;
+
+    decimal totalQCompra = 0.00m;
+    int totalCompras = 0;
+
+    decimal totalQIngreso = 0.00m;
+    int totalIngresos = 0;
+
+    decimal totalQEgreso = 0.00m;
+    int totalEgresos = 0;
+
+
+
+    var personaApertura = @Model.Caja.ResponsableApertura == null ? "" : @Model.Caja.ResponsableAperturaText;
+    var personaCierre = @Model.Caja.ResponsableCierre == null ? "" : @Model.Caja.ResponsableCierreText;
+}
+
+	<div>
+		<div class="text-center" style="border: 1px black solid;">
+			<h4> Reporte de Detalle Caja @Model.Caja.FechaApertura.ToString("MM/dd/yyyy")</h4>
+			<h6>RED OWL SOFTWARE</h6>
+		</div>
+	</div>
+	<br>
+     <div>
+		<span class="font-weight-bold">FECHA Y HORA DE EMISIÓN  </span>
+		<span> @DateTime.Now </span>
+	</div>
+     <div>
+		<span class="font-weight-bold">RESPONSABLE APERTURA</span>
+		<span>  @personaApertura </span>
+	</div>
+     <div>
+		<span class="font-weight-bold">RESPONSABLE CIERRE</span>
+		<span> @personaCierre </span>
+	</div>
+    <br>
+    <h6>VENTAS</h6>
+
+  <hr style="border: gray 1px solid;">
+   <div>
+        <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th>Fecha Venta</th>
+                        <th>Descripción</th>
+                        <th>Cliente</th>
+                        <th>Vendedor</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Caja.DetalleCajas.Where(a => a.Venta != null).OrderByDescending(a=>a.Venta.FechaVenta))
+                        {
+                            <tr>
+                                <td>@item.Venta.FechaVenta</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Venta.Clientes.Nombre</td>
+                                <td>@item.Venta.Empleado.Nombre</td>
+                                <td>Q @item.Ingreso</td>
+                            </tr>
+                            totalQVenta += item.Ingreso;
+                            totalVentas += 1;
+                        }
+                    </tbody>
+        </table>
+        <br>
+        <div>
+            <span class="font-weight-bold">Monto</span>
+            <h6>Q @totalQVenta </h6>
+        </div>
+        <div>
+            <span class="font-weight-bold">Total ventas</span>
+            <h6>@totalVentas </h6>
+        </div>
+   </div>
+        <br>
+        <h6>COMPRAS</h6>
+        <hr style="border: gray 1px solid;">
+   <div>
+        <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th>Fecha Compra</th>
+                        <th>Comprobante</th>
+                        <th>Descripción</th>
+                        <th>Proveedor</th>
+                        <th>Vendedor</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Caja.DetalleCajas.Where(a => a.Compra != null).OrderByDescending(a=>a.Compra.FechaCompra))
+                        {
+                            <tr>
+                                <td>@item.Compra.FechaCompra</td>
+                                <td>
+                                    @if (String.IsNullOrEmpty(item.Compra.NoComprobante))
+                                    {
+                                        <span>CF</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@item.Compra.NoComprobante</span>
+
+                                    }
+                                </td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Compra.Proveedor.Nombre</td>
+                                <td>@item.Compra.Empleado.Nombre</td>
+                                <td>Q @item.Gasto</td>
+                            </tr>
+
+                            totalQCompra += item.Gasto;
+                            totalCompras += 1;
+                        }
+                    </tbody>
+        </table>
+        <br>
+        <div>
+            <span class="font-weight-bold">Monto</span>
+            <h6>Q @totalQCompra </h6>
+        </div>
+         <div>
+            <span class="font-weight-bold">Total Compras</span>
+            <h6>@totalCompras </h6>
+        </div>
+        
+   </div>
+
+        <br>
+        <h6>INGRESOS</h6>
+        <hr style="border: gray 1px solid;">
+   <div>
+        <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th>Fecha Ingreso</th>
+                        <th>Descripción</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Caja.DetalleCajas.Where(a => a.Ingreso != 0.00m && a.Venta==null && a.VentaServicio==null).OrderByDescending(a=>a.Fecha))
+                        {
+                            <tr>
+                                <td>@item.Fecha</td>
+                                <td>@item.Descripcion</td>
+                                <td>Q @item.Ingreso</td>
+                            </tr>
+
+                            totalQIngreso += item.Ingreso;
+                            totalIngresos += 1;
+
+                        }
+                    </tbody>
+        </table>
+        <br>
+        <div>
+            <span class="font-weight-bold">Monto</span>
+            <h6>Q @totalQIngreso </h6>
+        </div>
+        <div>
+            <span class="font-weight-bold">Total Ingresos</span>
+            <h6>@totalQIngreso </h6>
+        </div>
+        
+   </div>
+
+           <br>
+        <h6>EGRESOS</h6>
+        <hr style="border: gray 1px solid;">
+   <div>
+        <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th>Fecha Egreso</th>
+                        <th>Descripción</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Caja.DetalleCajas.Where(a => a.Gasto != 0.00m && a.Compra == null).OrderByDescending(a=>a.Fecha))
+                        {
+                            <tr>
+                                <td>@item.Fecha</td>
+                                <td>@item.Descripcion</td>
+                                <td>Q @item.Gasto</td>
+                            </tr>
+
+                            totalQEgreso += item.Gasto;
+                            totalEgresos += 1;
+                        }
+                    </tbody>
+        </table>
+        <br>
+        <div>
+            <span class="font-weight-bold">Monto</span>
+            <h6>Q @totalQIngreso </h6>
+        </div>
+        <div>
+            <span class="font-weight-bold">Total Egresos</span>
+            <h6>@totalEgresos </h6>
+        </div>
+        
+   </div>
+
+@{
+    decimal montoApertura = @Model.Caja.MontoApertura;
+    decimal sumaIng = totalQVenta + totalQIngreso;
+    decimal sumaEg = totalQIngreso;
+    decimal totalCierre = (sumaIng - sumaEg) + montoApertura;
+}
+<div class="form-row">
+    <div class="col-md-12">
+                <div class="text-right" style="font-size: 17px;">
+                    <span>Monto Apertura:</span>
+                    Q <span>@Model.Caja.MontoApertura</span>
+                </div>
+                <div class="text-right" style="font-size: 17px;">
+                    <span>Total Egresos:</span>
+                    Q <span>@sumaEg</span>
+                </div>
+                <div class="text-right" style="font-size: 17px;">
+                    <span>Total Ingresos</span>
+                    Q <span>@sumaIng</span>
+                </div>
+                <div class="text-right" style="font-size: 17px;">
+                    <span>Total Cierre:</span>
+                    Q <span>@totalCierre</span>
+                </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+@using System;
+@using System.Globalization;
+@model Database.Shared.Models.Compra;
+
+@{
+    Layout = "_HojaLayout";
+    @* var PrecioTotal = 0.0m; *@
+    var CostoTotal = 0.0m;
+}
+
+	<div>
+		<div class="text-center" style="border: 1px black solid;">
+			<h4> Solicitud </h4>
+			<h6>RED OWL SOFTWARE</h6>
+		</div>
+	</div>
+	<br>
+    <div>
+		<span class="font-weight-bold">RESPONSABLE</span>
+		<span> @Model.Empleado.Nombre</span>
+	</div>
+
+    <div>
+		<span class="font-weight-bold">PROVEEDOR</span>
+		<span> @Model.Proveedor.Nombre</span>
+	</div>
+
+	<div>
+		<span class="font-weight-bold">FECHA DE EMISI&#205;ON</span>
+		<span> @Model.FechaCompra.ToString("D",CultureInfo.CreateSpecificCulture("Es-GT")).ToUpperInvariant() @Model.FechaCompra.ToString("HH:mm")</span>
+	</div>
+
+	<div>
+		<span class="font-weight-bold">FECHA LIMITE</span>
+		<span> @Model.FechaLimite.ToString("D",CultureInfo.CreateSpecificCulture("Es-GT")).ToUpperInvariant() @Model.FechaLimite.ToString("HH:mm")</span>
+	</div>
+
+    <div>
+		<span class="font-weight-bold">OBSERVACIONES</span>
+		<span> @Model.Observaciones</span>
+	</div>
+    <br>
+
+    <div>
+		<span class="font-weight-bold">TIPO</span>
+		<span> @Model.TipoCompra.Tipo </span>
+	</div>
+
+    <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="background: #1f4724 !important; color: white;"><span contenteditable>REF.</span></th>
+                    <th style="background: #1f4724 !important; color: white;"><span contenteditable>NOMBRE</span></th>
+                    <th style="background: #1f4724 !important; color: white;"><span contenteditable>CANTIDAD</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach(var producto in Model.DetalleCompras)
+                    {
+                        @* var presentacion = producto.Producto.PresentacionProducto == null ? "// sin asignar " : producto.Producto.PresentacionProducto.PresentProducto; *@
+                        decimal cost = producto.Producto.PrecioCosto * producto.Cantidad;
+
+                        CostoTotal = CostoTotal + cost; 
+
+                    <tr>
+                        <td><span contenteditable>@producto.Producto.CodigoReferencia</span></td>
+                        <td><span>@producto.Producto.NombreProducto</span></td>
+                        <td><span>@producto.Cantidad</span></td>
+                    </tr>
+                    }
+                    
+                </tbody>
+    </table>
+
+    <div>
+		<span class="font-weight-bold">Costo total</span>
+		<span> Q @CostoTotal</span>
+	</div>
+

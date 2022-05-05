@@ -1,0 +1,59 @@
+@model sistema.Models.ConsultasViewModel
+    @Html.HiddenFor(a => a.CitaId)
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <div class="text-center">
+                <h3 class="text-primary">Datos de Consulta</h3>
+                <hr>
+                <h5>Paciente: @Model.Nombres</h5>
+                <h5>Servicio: @Model.Servicio</h5>
+                <h5>Médico asignado: @Model.MedicoAsignado</h5>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col-6">
+                     <div class="position-relative form-group"><label for="exampleEmail11" class="">Costo de consulta</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.CostoConsulta, new {@class="form-control",
+                                       @placeholder="Costo de consulta"})
+                        @Html.ValidationMessageFor(a => a.CostoConsulta, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                     <div class="position-relative form-group">
+                        <label>Estado de pago</label>
+                        <select class="form-control select2bs4" style="width: 100%;" asp-for="EstadoPagoId"
+                            asp-items="@Model.EstadosPagosLista">
+                             @* <option disabled selected>--- SELECCIONE ---</option>
+                              *@
+                        </select>
+                        @Html.ValidationMessageFor(a => a.Consulta.EstadoPagoConsultaId, "", new { @class = "text-danger"})
+                     </div>
+                </div>
+
+                <div class="col-md-12">
+                     <div class="position-relative form-group">
+                        <label>Fecha de creación de consulta (automática)</label>
+                       <input class="form-control" asp-for="FechaYHoraInicio" readonly ="readonly">
+                        @Html.ValidationMessageFor(a => a.Consulta.EstadoPagoConsultaId, "", new { @class = "text-danger"})
+                     </div>
+                </div>
+
+                 <div class="col-md-12">
+                     <div class="position-relative form-group">
+                        <label>Observaciones adicionales</label>
+                        @Html.TextAreaFor(a => a.Consulta.ObservacionesAdicionales ,5,500 ,htmlAttributes : new { @class="form-control ", @placeholder="Observaciones adicionales", @style="max-width:100% !important;"})
+                        @Html.ValidationMessageFor(a => a.Consulta.EstadoPagoConsultaId, "", new { @class = "text-danger"})
+                     </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary">
+                    Crear consulta
+                </button>
+            </div>
+
+        </div>
+    </div>

@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Modificar Usuario";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+
+@model sistema.Areas.Identity.Pages.Account.RegisterModel.InputModel
+
+@await Html.PartialAsync("_NuevoUsuarioForm")
+
+
+@section Scripts
+{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script type="text/javascript" src="~/js/moment.min.js"></script>
+<script type="text/javascript" src="~/js/daterangepicker.js"></script>
+<script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script>
+    $(function(){
+        $('.select2').select2({
+            tags: true
+        });
+        
+    $('.select2bs4-user').select2({
+      theme: 'bootstrap4',
+      placeholder: 'Sin asignar',
+      allowClear: true   // Shows an X to allow the user to clear the value.
+    });
+    $('.select2bs4-emp').select2({
+      theme: 'bootstrap4',
+      placeholder: 'Sin asignar',
+      allowClear: true   // Shows an X to allow the user to clear the value.
+    });
+
+          $('#reservationtime').daterangepicker({
+                    timePicker: true,
+                    timePickerIncrement: 30,
+                    locale: {
+                        format: 'MM/DD/YYYY hh:mm A'
+                    }
+                });
+    });
+
+
+    
+</script>
+}
+

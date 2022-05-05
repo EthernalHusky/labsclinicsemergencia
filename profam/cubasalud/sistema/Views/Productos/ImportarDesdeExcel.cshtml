@@ -1,0 +1,16 @@
+@await Html.PartialAsync("_MensajeExito")
+
+<form asp-controller="Productos" asp-action="ImportarDesdeExcel" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" value="Import"/>
+</form>
+
+<div>
+        <h1>
+                @ViewBag.Licencia
+        </h1>
+</div>
+
+<div>
+        <a asp-controller="Productos" asp-action="ImportarMedicamentosFarmaciaABodega" class="btn btn-danger"> Importar Med Farm a Bod</a>
+</div>

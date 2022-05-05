@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "Nuevo Traslado";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+@await Html.PartialAsync("_TrasladoForm")
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        $(function(){
+            $('.select2bs4').select2({
+                theme: 'bootstrap4',
+                @* tags: true, *@
+                });
+        });
+    </script>
+
+    <script>
+        $("#btnanadir").click(function(){
+
+            var productoSelectedValue = $("#prodselected").val();
+            var datos = {"id" : productoSelectedValue}
+
+                $.ajax({
+                    method: "POST",
+                    data: datos,
+                    //dataType: "json",
+                    url: '/Productos/RetornarProductoById',
+                    traditional: true,
+
+                    success: function(data, state) {
+                        console.log(data);
+                        agregarATabla(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    },
+
+                });
+        });
+
+
+        function agregarATabla(data) {
+            var htmlTags = 
+            '<tr>' +
+            '<td>'+ data.id+ '</td>'+
+            '<td>'+ data.nombreProducto+'</td>'+
+            '<td class="cantidad-fila"> <input type="number" class="form-control " value="1"> </td>'+
+            '<td> <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFilaC(this)">Quitar</button> </td>'+
+            +'</tr>';
+
+            $("#contentdetalle-c").append(htmlTags);
+        }
+
+    function eliminarFilaC(r) {
+
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("tableventa-c").deleteRow(i);
+    }
+
+    $("#guardar").click(function(){
+        
+        var productoDetalleTabla = new Array();
+
+        $.each($("#tableventa-c tbody tr"), function() {
+        productoDetalleTabla.push({
+            "ProductoId": parseInt($(this).find("td").eq(0).html()), 
+            "Cantidad": parseInt(this.querySelectorAll("td.cantidad-fila")[0].querySelectorAll("input")[0].value),
+            });
+        });
+
+        var datos = {
+            "TrasladosDto": {
+                "Observaciones" :  $("#txtObservacion").val(),
+            },
+
+            "DetalleTrasladoProductos": productoDetalleTabla,
+        };
+
+        $.ajax({
+            method: "POST",
+            data: JSON.stringify(datos),
+            "dataType": "json",
+            "contentType": "application/json",
+            url: '/TrasladosBodegaAFarmacia/GuardarTraslado',
+            traditional: true,
+            success: function(data, textStatus) {
+                console.log(data);
+                window.location.href = "/TrasladosBodegaAFarmacia/Editar/" +  data;
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+
+    });
+
+    </script>
+}
+
+    @section css {
+         <link href="~/css/daterangepicker.css" rel="stylesheet">
+    }

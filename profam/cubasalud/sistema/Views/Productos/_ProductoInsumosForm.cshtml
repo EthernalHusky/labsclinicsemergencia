@@ -1,0 +1,160 @@
+@model sistema.Models.ProductoInsumosBaseViewModel
+<div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+
+            <div class="form-row">
+                <div class="col-12">
+                     <div class="position-relative form-group"><label for="exampleEmail11" class="">Nombre Comercial</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Producto.NombreProducto, new {@class="form-control",
+                                       @placeholder="Nombre Comercial"})
+                        @Html.ValidationMessageFor(a => a.Producto.NombreProducto, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4">
+                     <div class="position-relative form-group">
+                        <label>Categoría</label>
+                        <a class="btn btn-primary btn-sm" asp-action="ListaCategorias" asp-controller="Categoria">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <select class="form-control select2bs4" style="width: 100%;" asp-for="Producto.CategoriaId"
+                            asp-items="@Model.CategoriasSelectListItems">
+                             <option disabled selected>--- SELECCIONE ---</option>
+                        </select>
+                        @Html.ValidationMessageFor(a => a.Producto.CategoriaId, "", new { @class = "text-danger"})
+                     </div>
+                </div>
+
+                 <div class="col-md-4">
+                        <div class="position-relative form-group">
+                            <label>Marca</label>
+                            <a class="btn btn-primary btn-sm" asp-action="ListaMarcas" asp-controller="Categoria">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <select class="form-control select2bs4" style="width: 100%;" asp-for="Producto.MarcaId"
+                                asp-items="@Model.MarcaSelectListItems">
+                                 <option disabled selected>--- SELECCIONE ---</option>
+                            </select>
+                            @Html.ValidationMessageFor(a => a.Producto.MarcaId, "", new { @class = "text-danger"})
+                        </div>
+                </div>
+
+                <div class="col-md-4">
+                        <div class="position-relative form-group">
+                            <label>Grupo</label>
+                            <a class="btn btn-primary btn-sm" asp-action="ListaGrupos" asp-controller="Categoria">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <select class="form-control select2bs4" style="width: 100%;" asp-for="Producto.GrupoId"
+                                asp-items="@Model.GruposSelectListItems">
+                                 <option disabled selected>--- SELECCIONE ---</option>
+                            </select>
+                            @Html.ValidationMessageFor(a => a.Producto.GrupoId, "", new { @class = "text-danger"})
+                        </div>
+                </div>
+
+                <div class="col-md-12">
+                        <div class="position-relative form-group">
+                            <label>Presentación</label>
+                            <a class="btn btn-primary btn-sm" asp-action="ListaPresentacionProducto" asp-controller="Categoria">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <select class="form-control select2bs4" style="width: 100%;" asp-for="Producto.PresentacionProductoId"
+                                asp-items="@Model.PresentacionSelectListItems">
+                                 <option disabled selected>--- SELECCIONE ---</option>
+                            </select>
+                            @Html.ValidationMessageFor(a => a.Producto.PresentacionProductoId, "", new { @class = "text-danger"})
+                        </div>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Precio público</label>
+                        
+                        @Html.TextBoxFor(a => a.Producto.Precio_5, new{ type="number",step="any", @class="form-control",
+                                        @placeholder="Precio 5"})
+                        @Html.ValidationMessageFor(a => a.Producto.Precio_5, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+            <div class="col-md-6">
+                <div class="position-relative form-group">
+                    <label class="">Precio Costo</label>
+                
+                    @Html.TextBoxFor(a => a.Producto.PrecioCosto, new{ type="number",step="any", @class="form-control",
+                                    @placeholder="Precio Costo"})
+                    @Html.ValidationMessageFor(a => a.Producto.PrecioCosto, "", new { @class = "text-danger"})
+                </div>
+            </div>
+
+             <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Stock</label>
+
+                    
+                        @Html.TextBoxFor(a => a.Producto.Stock, new{ type="number",step="any", @class="form-control",
+                                       @placeholder="Stock"})
+                        @Html.ValidationMessageFor(a => a.Producto.Stock, "", new { @class = "text-danger"})
+                    </div>
+            </div>
+
+            <div class="col-md-6">
+                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Codigo
+                            Referencia</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Producto.CodigoReferencia, new {@class="form-control",
+                                       @placeholder="Codigo de Referencia"})
+                        @Html.ValidationMessageFor(a => a.Producto.CodigoReferencia, "", new { @class = "text-danger"})
+                    </div>
+            </div>
+
+                            <div class="col-md-6">
+                    <div class="position-relative form-group"><label class="">Imagen de referencia</label>
+                        @Html.TextBoxFor(a => a.Producto.Imagen, new {@class="form-control",
+                                       @placeholder="Pegar link imagen..."})
+                        @Html.ValidationMessageFor(a => a.Producto.Imagen,"", new { @class = "text-danger"})
+                    </div>
+                </div>
+                
+                    <div class="col-md-6">
+                         <div class="position-relative form-group">
+                             <label class="">Fecha de vencimiento</label>
+                            <input type="text" class="form-control float-right" id="reservationtime" asp-for="Producto.FechaVencimiento">
+                         </div>
+                    </div>
+
+            </div>
+                
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="position-relative form-group">
+                            <label class="">Descripción</label>
+                            @* <textarea class="form-control" placeholder="Ingredientes"></textarea> *@
+                            @Html.TextAreaFor(a => a.Producto.Descripcion,5,500 ,htmlAttributes : new {
+                                               @class="form-control ", @placeholder="Descripción", @style="max-width:100% !important;"})
+                            @* @Html.TextAreaFor(a => a.Producto.Descripcion, new { htmlAttributes = new { @class =
+                                "form-control"} }) *@
+                            @Html.ValidationMessageFor(a => a.Producto.Descripcion, "", new { @class = "text-danger"})
+                        </div>
+                    </div>
+                </div>
+               
+               
+                    <div class="col-md-12">
+                        <div class="position-relative form-group">
+                            <button class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>

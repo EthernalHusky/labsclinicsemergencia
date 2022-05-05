@@ -1,0 +1,345 @@
+@using Database.Shared.Paginacion;
+@model sistema.Models.CalendarioLinealViewModel
+
+@{
+    ViewData["Title"] = "Lista Citas";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+
+
+@* 
+<div class="form-row">
+    <div class="col-md-12">
+        <a asp-action="AgendarCita" asp-controller="Cita" class="btn btn-danger">
+            <i class="fas fa-calendar-check"></i> &nbsp; Nueva Cita 
+        </a>
+        <a asp-action="Index" asp-controller="Cita" class="btn btn-danger">
+            <i class="fas fa-calendar-check"></i> &nbsp; No asistidas 
+        </a>
+        <a asp-action="CitasFinalizadas" asp-controller="Cita" class="btn btn-success">
+                <i class="fas fa-list"></i>  &nbsp; Citas Finalizadas 
+        </a>
+         <a asp-action="CitasListadoNormales" asp-controller="Cita" class="btn btn-danger" asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                <i class="fas fa-list"></i>  &nbsp; Reporte 
+        </a>
+    </div>
+</div>
+    <br> *@
+
+
+<form asp-action="CalendarioLineal" method="get">
+    <div class="col-md-12">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <input type="submit" value="Buscar" class="btn btn-success"></input>
+            </div>
+            @* <input type="text" name="buscar" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Buscar por nombre o por especialidad..."> *@
+            <input type="text" name="buscar" class="form-control float-right" id="fechacita" value="@ViewData["CurrentFilter"]">
+
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="mb-0 table table-hover ">
+                    <thead>
+                        <tr>
+
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Especialdad</th>
+                            <th>Doctor</th>
+                            <th>Servicio</th>
+                            <th>Paciente</th>
+                            <th>Número</th>
+                            <th>Asitencia</th>
+                            @* <th>Observaciones</th> *@
+                            <th>Usuario</th>
+                            <th>Menor de edad</th>
+                            <th>Nombre encargado</th>
+                            @* <th>Observaciones</th> *@
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Horas)
+                        {
+                            var flag = false;
+
+                            foreach(var cita in Model.Citas)
+                            {
+
+                               var fechaYHora = $"{Model.Fecha} {item}";
+
+                                if(cita.FechaInicio.ToString("MM/dd/yyyy HH:mm") == fechaYHora )
+                                {
+
+                                    var cliente = cita.Paciente == null ? "" : cita.Paciente.Nombre;
+                                    var telefono = cita.Paciente == null ? "" : cita.Paciente.Telefono;
+                                    var celular = cita.Paciente == null ? "" : cita.Paciente.Celular;
+                                    var sexo = cita.Paciente == null ? "" : cita.Paciente.sexoText;
+
+
+                                    @* var persona = item.User == null ? "" : item.PersonText; *@
+                                    @* var empleado = item.Empleado == null ? "" : item.Empleado.NombreYApellidos; *@
+                                    
+                                    var background = "";
+                                    var color = "";
+
+                                    @if(cita.EspecialidadText == "Medicina general")
+                                    {
+                                        background = "#2fb9e7";
+                                        color = "black";
+                                    }
+                                    else if(cita.EspecialidadText == "Medicina estética")
+                                    {
+                                        background = "#A02B4E";
+                                        color = "white";
+                                    }
+                                    else if(cita.EspecialidadText == "Ginecología y Obstetricia")
+                                    {
+                                        background = "#e660c3";
+                                        color = "white";
+                                    }
+                                    else if(cita.EspecialidadText == "Pediatría")
+                                    {
+                                        background = "#ffa500";
+                                        color = "black";
+                                    }
+                                    else if(cita.EspecialidadText == "Cirugía")
+                                    {
+                                        background = "#808080";
+                                        color = "white";
+                                    }
+
+                                    else if(cita.EspecialidadText == "Traumatología")
+                                    {
+                                            background = "#000000";
+                                        color = "white";
+                                    }
+
+                                        else if(cita.EspecialidadText == "Medicina interna")
+                                    {
+                                            background = "#8B4513";
+                                        color = "white";
+                                    }
+                                    
+
+                                        else if(cita.EspecialidadText == "Laboratorio clínico")
+                                    {
+                                            background = "#008000";
+                                        color = "white";
+                                    }
+
+                                    string backgroundAsistencia = "";
+                                    string colorAsistencia = "";
+
+
+                                    if(cita.EstadoCita == "No asistida")
+                                    {
+                                        backgroundAsistencia = "red";
+                                        colorAsistencia = "white";
+                                    }
+                                    else if(cita.EstadoCita == "asistida")
+                                    {
+                                        backgroundAsistencia = "green";
+                                        colorAsistencia = "white";
+                                    }
+                                    else {
+                                        backgroundAsistencia = "none";
+                                        colorAsistencia = "black";
+                                    }
+                        
+                                    
+                                        <tr>
+                                            <td> @Model.Fecha </td>
+                                            <td> @item</td>
+                                            <td style="background: @background; color: @color"> @cita.EspecialidadText</td>
+                                            <td> @cita.EmpleadoText </td>
+                                            <td> @cita.ServicioText </td>
+                                            <td>@cliente</td>
+                                            <td>@telefono</td>
+                                            <td style="background: @backgroundAsistencia; color: @colorAsistencia">
+                                                @cita.EstadoCita
+                                            </td>
+                                            @* <td>@item.Motivo</td> *@
+                                            <td> @cita.PersonText </td>
+                                            <td>@cita.EsMenorDeEdadText</td>
+                                            <td>@cita.NombreEncargado</td>
+                                            
+                                            @* <td style="max-width:150px; word-wrap: break-word;" >@item.Motivo</td> *@
+                                            <td>
+                                               
+                                                @if(@cita.Finalizada == false)
+                                                {
+                                                <a class="btn btn-danger text-white" onclick="Eliminar(@cita.Id, '@fechaYHora')">
+                                                    Eliminar
+                                                </a>
+                                                }
+                                               
+                                               @if(@cita.Finalizada != true && @cita.EstadoCita != "asistida")
+                                               {
+                                                <a class="btn btn-success text-white" onclick="Finalizar(@cita.Id, '@fechaYHora')">
+                                                    Finalizar
+                                                </a>
+                                               
+                                                <a class="btn btn-secondary text-white" asp-controller="Cita" asp-action="NoAsistio" asp-route-citaId = "@cita.Id" asp-route-fecha="@fechaYHora">
+                                                    No asistió
+                                                </a>
+
+                                                 <a href="@Url.Action("EditarCita","Cita", new {id = @cita.Id, })"
+                                                    class="btn btn-warning btn-sm">
+                                                    Modificar
+                                                </a>
+                                                <br><br>
+
+                                               <a class="btn btn-warning" asp-asp-controller="Cita" asp-action="AgendarCita" asp-route-fecha="@fechaYHora">
+                                                    <i class="fas fa-calendar-plus"></i> Clonar Fecha
+                                                </a>
+                                               }
+
+                                                @if(@cita.EstadoCita == "No asistida")
+                                                {
+                                                     <a class="btn btn-secondary text-white" asp-controller="Cita" asp-action="ReprogramarCita" asp-route-citaId = "@cita.Id" asp-route-fecha="@fechaYHora">
+                                                         reprogramar
+                                                    </a>
+                                                }
+
+                                            </td>
+                                        </tr>
+
+                                    flag = true;
+                                }
+
+                            
+                            }
+
+                            if(!flag)
+                            {
+                                 var fechaYHora = $"{Model.Fecha} {item}";
+
+                                 <tr>
+                                            <td>@Model.Fecha</td>
+                                            <td>@item</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <a class="btn btn-warning" asp-asp-controller="Cita" asp-action="AgendarCita" asp-route-fecha="@fechaYHora">
+                                                    <i class="fas fa-calendar-plus"></i> Agendar
+                                                </a>
+                                            </td>
+                                    </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+@* 
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+
+
+<a asp-action="Lista" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex - 1)"
+    asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-danger btn-sm @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Lista" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex + 1)"
+    asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-danger btn-sm @nextDisabled" class="">
+    Siguiente
+</a> *@
+
+
+@section Scripts
+{    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script>
+
+        $('#fechacita').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            singleDatePicker: true,
+            locale: {
+            format: 'MM/DD/YYYY'
+            }
+        });
+
+    </script>
+
+    <script>
+        function Eliminar(id, fecha){
+            var option = confirm("¿Está seguro/a que desea eliminar este registro?");
+
+            if(option)
+            {
+                var data = {
+                    "id" : parseInt(id),
+                    "fecha": fecha,
+                    
+                    }
+
+                $.ajax({
+                    url: "/Cita/EliminarCita/",
+                    data: data ,
+                    type: 'POST',
+                    success: function (result) {
+                        window.location.href = '/Cita/CalendarioLineal?buscar=' + result;
+
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            }
+        }
+
+        function Finalizar(id, fecha){
+            var option = confirm("¿Está seguro/a que desea finalizar esta cita?");
+
+            if(option)
+            {
+                var data = {
+                    "id" : parseInt(id),
+                    "fecha": fecha, 
+                }
+
+                $.ajax({
+                    url: "/Cita/FinalizarCita/",
+                    data: data ,
+                    type: 'POST',
+                    success: function (result) {
+                        window.location.href = '/Cita/CalendarioLineal?buscar=' + result;
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            }
+        }
+    </script>
+}
+
+    @section css {
+         <link href="~/css/daterangepicker.css" rel="stylesheet">
+    }

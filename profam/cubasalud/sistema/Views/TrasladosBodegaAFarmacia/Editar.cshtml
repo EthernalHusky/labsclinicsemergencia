@@ -1,0 +1,186 @@
+@model sistema.Models.TrasladosBaseViewModel
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+@using Microsoft.AspNetCore.Identity;
+
+@{
+    ViewData["Title"] = "Editar Traslado";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div>
+                    <label>Estado actual: <span class="text-danger">@Model.TrasladosProductos.EstadoTraslados.DescripcionEstado</span></label>
+                </div>
+                <br>
+                <div>
+                    <label>Cambiar a:</label>
+                    <a class="btn btn-danger btn-sm" asp-action="CambiarAEnTransito" asp-controller="TrasladosBodegaAFarmacia" asp-route-trasladoId="@Model.TrasladosProductos.Id">
+                        En tránsito
+                    </a>
+                    <a class="btn btn-danger btn-sm" asp-action="AceptarTraslado" asp-controller="TrasladosBodegaAFarmacia" asp-route-id="@Model.TrasladosProductos.Id">
+                        Aceptados
+                    </a>
+                    <a class="btn btn-danger btn-sm" asp-action="CambiarAFaltantes" asp-controller="TrasladosBodegaAFarmacia" asp-route-trasladoId="@Model.TrasladosProductos.Id">
+                        Faltantes
+                    </a>
+                    <a class="btn btn-danger btn-sm" asp-action="CambiarAConProblema" asp-controller="TrasladosBodegaAFarmacia" asp-route-trasladoId="@Model.TrasladosProductos.Id">
+                        Con problema
+                    </a>
+                     <a class="btn btn-danger btn-sm" asp-action="CambiarACancelado" asp-controller="TrasladosBodegaAFarmacia" asp-route-trasladoId="@Model.TrasladosProductos.Id">
+                        Cancelar
+                    </a>
+                </div>
+                <br>
+
+                @if(User.IsInRole("Administrador"))
+                {
+                    <div>
+                        <label>Reporte: </label>
+                        <a class="btn btn-danger btn-sm" asp-action="Reporte" asp-controller="TrasladosBodegaAFarmacia" asp-route-trasladoId="@Model.TrasladosProductos.Id">
+                            PDF &nbsp; <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
+                }
+                else 
+                {
+                   <div>
+                        <label>Reporte: </label>
+                        <a class="btn btn-danger btn-sm" asp-action="ReporteU" asp-controller="TrasladosBodegaAFarmacia" asp-route-trasladoId="@Model.TrasladosProductos.Id">
+                            PDF &nbsp; <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
+                }
+              
+        </div>
+    </div>
+</div>
+
+
+
+
+<br>
+
+@await Html.PartialAsync("_MensajeExito")
+@await Html.PartialAsync("_TrasladoForm")
+
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        $(function(){
+            $('.select2bs4').select2({
+                theme: 'bootstrap4',
+                @* tags: true, *@
+                });
+        });
+    </script>
+
+    <script>
+        $("#btnanadir").click(function(){
+
+            var productoSelectedValue = $("#prodselected").val();
+            var datos = {"id" : productoSelectedValue}
+
+                $.ajax({
+                    method: "POST",
+                    data: datos,
+                    //dataType: "json",
+                    url: '/Productos/RetornarProductoById',
+                    traditional: true,
+
+                    success: function(data, state) {
+                        console.log(data);
+                        agregarATabla(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    },
+
+                });
+        });
+
+
+        function agregarATabla(data) {
+            var htmlTags = 
+            '<tr class="bg bg-success">' +
+            '<td class="nuevo-detalle">' + data.id +'</td>'+
+            '<td>'+ data.nombreProducto+'</td>'+
+            '<td class="cantidad-fila"><input type="number" step="any" value="1" class="form-control"> </td>'+
+            '<td> <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFilaC(this)">Quitar</button> </td>'+
+            +'</tr>';
+
+            $("#contentdetalle-c").append(htmlTags);
+        }
+
+    function eliminarFilaC(r) {
+
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("tableventa-c").deleteRow(i);
+    }
+
+    $("#guardar").click(function(){
+        
+        var productoDetalleTabla = new Array();
+        var productosEnBaseDeDatos = new Array();
+
+        $.each($("#tableventa-c tbody tr td.nuevo-detalle").parent(), function() {
+            productoDetalleTabla.push({
+                "ProductoId": parseInt($(this).find("td").eq(0).html()),
+                "Cantidad": parseInt($(this).find("td").eq(2).find("input").val()), 
+            });
+        });
+
+        $.each($("#tableventa-c tbody tr td.idProd"), function() {
+            productosEnBaseDeDatos.push({
+                "Id": parseInt($(this).html()),
+                "ProductoId" : parseInt($(this).parent().find("td").eq(4).html()),
+                "Cantidad": parseInt($(this).parent().find("td").eq(2).find("input").val()),   
+                });
+            });
+
+
+        var datos = {
+            "TrasladosDto": {
+                "Observaciones" :  $("#txtObservacion").val(),
+                "Id" : @Model.TrasladosProductos.Id
+            },
+
+            "DetalleTrasladosProductosNuevos": productoDetalleTabla, 
+            "DetalleTrasladoProductos": productosEnBaseDeDatos,
+        };
+
+        console.log(datos);
+
+        $.ajax({
+            method: "POST",
+            data: JSON.stringify(datos),
+            "dataType": "json",
+            "contentType": "application/json",
+            url: '/TrasladosBodegaAFarmacia/GuardarModificacionTraslado',
+            traditional: true,
+            success: function(data, textStatus) {
+                 window.location.href = "/TrasladosBodegaAFarmacia/Editar/" +  @Model.TrasladosProductos.Id;
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+
+    });
+
+   
+
+
+    </script>
+   
+}
+
+    @section css {
+         <link href="~/css/daterangepicker.css" rel="stylesheet">
+    }

@@ -1,0 +1,63 @@
+ @{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+
+}
+
+@model sistema.Areas.Identity.Pages.Account.LogoutModel
+
+                <img width="40"  src="/assets/images/farmamestlogo.png" alt="">
+                       <div class="text-right" style="font-size: 12px;">
+                            <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+                            <br/>   
+                        </div>
+              
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Correo</th>
+                            <th>Empleado</th>
+                            <th>Estado</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                  
+                        @foreach (var item in Model.ListaUsers)
+                        {
+
+                            <tr>
+                                <td>@item.UserName</td>
+
+                               
+
+                                 @if (item.Persona == null)
+                                {
+                                    <td>Sin Asignar</td>
+                                }
+                                else
+                                {
+
+                                    <td>@item.Persona.Nombre</td>
+                                }
+
+                                 @if (item.LockoutEnabled== true)
+                                {
+                                    <td>Activo</td>
+                                }
+                                else
+                                {
+
+                                    <td>Inactivo</td>
+                                }
+
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+           

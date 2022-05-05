@@ -1,0 +1,16 @@
+@model sistema.Models.ServicioBaseViewModel
+
+@{
+    ViewData["Title"] = "Modificar Servicio";
+}
+
+
+     @await Html.PartialAsync("_MensajeExito")
+
+
+<br/>
+
+
+<form asp-controller="Servicio" asp-action="Modificar" method="post">  
+    @await Html.PartialAsync("_ServicioForm")
+</form>

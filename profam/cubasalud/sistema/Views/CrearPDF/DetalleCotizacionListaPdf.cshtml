@@ -1,0 +1,105 @@
+@model IEnumerable<Database.Shared.Models.Cotizacion>
+
+@{
+    ViewData["Title"] = "Lista Productos";
+   Layout = "_HojaLayout";
+    int porc = 0;
+}
+
+@foreach(var item in Model)
+ {
+                     
+                     <div class="form-row">
+                                   
+                                    <hr style="border-top: 3px double #8c8b8b;">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Cotizacion #: </strong></label>
+                                             <label class="">@item.Id</label>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Fecha Cotizacion: </strong></label>
+                                            <label class="">@item.FechaCotizacion</label>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Cliente: </strong></label>
+                                             <label class="">@item.Nombres</label>
+                                           
+                                        </div>
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Nit Cliente: </strong></label>
+                                             <label class="">@item.Nit</label>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Valido Hasta: </strong></label>
+                                             <label class="">@item.FechaValida</label>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""><strong>Total: </strong></label>
+                                             <label class="">Q @item.DetalleCotizacion.Sum(a => a.Total)</label>
+                                           
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+
+
+
+                    <table class=" table  ">
+                        <thead>
+                        <tr>
+                       
+                            <th>Nombre Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>%</th>
+                            <th>Descuento</th>
+                            <th>Subtotal</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            
+                      
+                            
+                        
+                            @foreach(var det in item.DetalleCotizacion)
+                            {
+                                
+                                            if(det.Descuento == 0 || det.Subtotal == 0){
+                                                porc = 0;
+                                            }
+                                            else 
+                                            {
+                                                porc = Convert.ToInt32((det.Descuento / det.Subtotal) * 100);
+                                            }
+                                           
+                                     <tr>
+                                     
+                                        <td>@det.Producto</td>
+                                        <td>@det.Cantidad</td>
+                                        <td>Q @det.Precio</td>
+                                        <td>@porc</td>
+                                        <td>Q @det.Descuento</td>
+                                        <td class="subtotal-t">Q @det.Subtotal</td>
+                                        <td class="total-t">Q @det.Total</td>
+                                        <td style="display: none;" class="idProd">@item.Id</td>
+                                    </tr>
+                            }
+                            
+                            
+                    
+                        </tbody>
+                    </table>
+        
+
+
+}

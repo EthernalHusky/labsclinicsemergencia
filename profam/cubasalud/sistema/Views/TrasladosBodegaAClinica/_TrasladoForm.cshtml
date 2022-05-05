@@ -1,0 +1,113 @@
+@model sistema.Models.TrasladosBaseViewModel
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="position-relative form-group">
+                                <label class="">Observación</label>
+                                @Html.TextAreaFor(a => a.TrasladosProductos.Observaciones,5,500 ,htmlAttributes : new {
+                                                @class="form-control ", @placeholder="Descripcion", @style="max-width:100% !important;", @id ="txtObservacion"})
+                                @Html.ValidationMessageFor(a => a.TrasladosProductos.Observaciones, "", new { @class = "text-danger"})
+                            </div>
+                        </div>
+                    </div>
+
+                    @if(Model.TrasladosProductos == null)
+                    {
+                        <div class="form-row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-primary text-white" id="guardar"> Guardar </a>
+                                </div>
+                        </div>
+                        
+                       
+                    }
+                    else {
+                         @if(Model.TrasladosProductos.EstadoTrasladosId != 1 && @Model.TrasladosProductos.EstadoTrasladosId != 2)
+                        {
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-primary text-white" id="guardar"> Guardar </a>
+                                </div>
+                        </div>
+                        }
+                    }
+                   
+                        
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-6">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+               <div class="form-row">
+                   <div class="col-md-12">
+                        <label>Añadir producto</label>
+                        <select class="form-control select2bs4" style="width: 100%;" asp-items="@Model.ProductoSelectListItems" id="prodselected">
+                            @* <option disabled selected>--- Seleccione ---</option> *@
+                        </select>
+                        <br>
+
+                    @if(Model.TrasladosProductos == null)
+                    {
+                            <div>
+                                <a class="btn btn-primary text-white" id="btnanadir">
+                                <i class="fas fa-plus"></i>  Añadir
+                                </a>
+                            </div>
+                    }
+                    else {
+                         @if(Model.TrasladosProductos.EstadoTrasladosId != 1 && @Model.TrasladosProductos.EstadoTrasladosId != 2)
+                        {
+                             <div>
+                                <a class="btn btn-primary text-white" id="btnanadir">
+                                <i class="fas fa-plus"></i>  Añadir
+                                </a>
+                            </div>
+                        }
+                    }
+
+                        <br>
+                        <div class="table-responsive">
+                            <table class='table table-hover' id="tableventa-c">
+                                <thead>
+                                    <tr>
+                                        <th>Codigo</th>
+                                        <th>Nombre Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Acciones</th>
+                                        <th>Cod.</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contentdetalle-c">
+                                    @if (Model.TrasladosProductos != null)
+                                    {
+                                        foreach (var item in Model.TrasladosProductos.DetalleTrasladoProductos)
+                                        {
+                                            <tr>
+                                                <td class="idProd">@item.Id</td>
+                                                <td>@item.Producto.NombreProducto</td>
+                                                <td><input type="number" step="any" value="@item.Cantidad" class="form-control"></td>
+                                                <td> <button type="button" class="btn btn-danger btn-sm"
+                                                            onclick="eliminarFilaC(this)">Quitar</button></td>
+                                                <td>@item.ProductoId</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+

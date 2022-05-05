@@ -1,0 +1,60 @@
+@model IEnumerable<Database.Shared.Models.Venta>
+
+@{
+
+Layout = "_HojaLayout";
+
+DateTime fecha = DateTime.Now;
+
+}
+
+<img width="40"  src="" alt="">
+<div class="text-right" style="font-size: 12px;">
+    <label class=""><strong>Fecha y Hora de Emision: </strong>@fecha</label> &nbsp; &nbsp;
+    <br/>   
+</div>
+
+            <div class="table-responsive table-sm">
+                    <table class="mb-0 table table-hover ">
+                        <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Venta #</th>
+                            <th>Vendedor</th>
+                            <th>Nombre</th>
+                            <th>Nit</th>
+                            <th>Forma de Pago</th>
+                            <th>Total</th>
+                            <th>Monto Pagado</th>
+                            <th>Vuelto</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                           @foreach(var item in Model)
+                            {
+                        <tr>
+                            <td>@item.FechaVenta</td>
+                            <td>@item.Id</td>
+                            <td>@item.Empleado.Nombre</td>
+                            <td>@item.Nombres</td>
+                            <td>@item.Nit</td>
+                            <td>
+                                @if(item.Pagos.Count() > 0)
+                                {
+                                     foreach (var pago in item.Pagos)
+                                    {
+                                    <span>@pago.FormaPago.NombreFormaPago - Q @pago.Monto</span>
+                                    }
+                                }
+                               
+                            </td>
+                            <td>Q @item.DetalleVenta.Sum(a => a.Total)</td>
+                            <td>Q @item.MontoPago</td>
+                            <td>Q @item.Vuelto</td>
+
+                           
+                        </tr>
+                            }
+                        </tbody>
+                    </table>
+            </div>

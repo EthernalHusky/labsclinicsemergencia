@@ -1,0 +1,40 @@
+@model IEnumerable<Database.Shared.Models.Cotizacion>
+
+@{
+    ViewData["Title"] = "Lista Productos";
+   Layout = "_HojaLayout";
+}
+
+
+
+                    <table class=" table  ">
+                        <thead>
+                        <tr>
+                           <th>Fecha Cotizacion</th>
+                           <th>Cotizacion #</th>
+                            <th>Cliente</th>
+                            <th>Nit</th>
+                            <th>Direccion</th>
+                            <th>Valido Hasta</th>
+                            <th>Total</th>
+                           
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                        <tr>
+                            <td>@item.FechaCotizacion</td>
+                            <td>@item.Id</td>
+                            <td>@item.Nombres</td>
+                            <td>@item.Nit</td>
+                            <td>@item.Direccion</td>
+                            <td>@item.FechaValida</td>
+                            <td>Q @item.DetalleCotizacion.Sum(a => a.Total)</td>
+                           
+                        </tr>
+                            }
+                        </tbody>
+                    </table>
+        
+

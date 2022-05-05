@@ -1,0 +1,13 @@
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/bin/Debug/netcoreapp3.1/Database.Shared.deps.json
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/bin/Debug/netcoreapp3.1/Database.Shared.runtimeconfig.json
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/bin/Debug/netcoreapp3.1/Database.Shared.runtimeconfig.dev.json
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/bin/Debug/netcoreapp3.1/Database.Shared.dll
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/bin/Debug/netcoreapp3.1/Database.Shared.pdb
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.csproj.AssemblyReference.cache
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.AssemblyInfoInputs.cache
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.AssemblyInfo.cs
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.csproj.CoreCompileInputs.cache
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.dll
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.pdb
+/home/benjamin/Desktop/labs/LabsClinics/profam/cubasalud/Database.Shared/obj/Debug/netcoreapp3.1/Database.Shared.genruntimeconfig.cache

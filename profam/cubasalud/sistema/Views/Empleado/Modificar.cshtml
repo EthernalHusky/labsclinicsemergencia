@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Modificar Emplado";
+}
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-graph text-success">
+                </i>
+            </div>
+            <div>Empleados
+                <div class="page-title-subheading">Modificar un Empleado
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ @await Html.PartialAsync("_MensajeExito")
+<form asp-controller="Empleado" asp-action="Modificar"  method="post">
+@await Html.PartialAsync("_EmpleadoForm")
+</form>
+
+@section Scripts
+{
+
+
+<script>
+    $(function(){
+        $('.select2').select2({
+            tags: true
+        });
+        
+    $('.select2bs4').select2({
+      theme: 'bootstrap4',
+      
+    })
+    });
+    
+</script>
+}

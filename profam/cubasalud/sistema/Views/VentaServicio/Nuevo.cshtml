@@ -1,0 +1,122 @@
+@model sistema.Models.VentaServicioBaseViewModel
+
+@{
+    ViewData["Title"] = "Nuevo Venta Servicio";
+}
+
+@await Html.PartialAsync("_MensajeExito")
+<br/>
+<button type="button" class="btn mr-2 mb-2 btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Forma de Pago</button>
+<br/>
+
+<div class="col-md-12">
+  <label>Servicio</label>
+    <select class="form-control select2bs4" style="width: 100%;"
+         asp-for="Servicio.Id" asp-items="@Model.ListaServicios" id="servicioselect">
+    </select>
+</div>
+<br/>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+@await Html.PartialAsync("_VentaServicioForm")
+
+
+@section Scripts
+{
+<script src="~/js/FuncionesVentaServicio.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script>
+    $(function(){
+        $('.select2').select2({
+            tags: true
+        });
+        
+    $('.select2bs4').select2({
+      theme: 'bootstrap4',
+      
+    })
+    });
+    
+</script>
+}
+
+@section Modales
+{
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Forma De Pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <div class="form-row">
+                                  <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">Forma de pago</label>
+                                            <select name="" id="selectformapago-s" class="form-control">
+                                                <option value="Efectivo">Efectivo</option>
+                                                <option value="Tarjeta de debito">Tarjeta de debito</option>
+                                                <option value="Tarjeta de credito">Tarjeta de credito</option>
+                                                <option value="Cheque">Cheque</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">Monto Pagado</label>
+                                            <input placeholder="Monto Pagado" id="montotxt-s" type="number" class="form-control">
+                                        
+                                        </div>
+                                    </div>
+                                    <br/>
+                                   
+                                    
+                                   
+                        </div>
+                   
+                         <div class="text-center" style="font-size: 18px; text-align: center;">
+                                        
+                                        <div class="">
+                                            <div class="">
+                                                <span>Vuelto:</span>
+                                            </div>
+                                            <div class="">
+                                                <span id="vuelto-n-s" style="font-weight: 800;" id="vuelto">0.00</span>                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="">
+                                        
+                                            <div class="tabel-text-total">
+                                            <span>Total:</span>
+                                            </div>
+
+                                            <div class="label-total-t">
+                                            <span style="font-weight: 800;" id="total-a-pagar2-s">0.00</span>
+                                            </div>
+                                        
+                                        </div>
+                             </div> 
+                   
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarVentaServicio()">Listo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+}

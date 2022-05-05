@@ -1,0 +1,94 @@
+@model sistema.Models.ExamenFisicoViewModel
+
+
+@{
+    ViewData["Title"] = "Editar Examen Fisico";
+
+}
+
+@await Html.PartialAsync("_MensajeExito")
+<form asp-controller="Consultas" asp-action="ModificarExamenFisico" method="post">
+
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+
+            <div class="form-row">
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Temperatura</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.ExamenFisico.Temperatura, new {@class="form-control", @placeholder="Temperatura"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.Temperatura, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Frecuencia Cardiaca</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.ExamenFisico.FrecuenciaCardiaca, new {@class="form-control", @placeholder="Frecuencia Cardiaca"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.FrecuenciaCardiaca, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Frecuencia Respiratoria </label>
+                        @* <input placeholder="Descripción Producto" class
+            <div class="col-md-12">
+                <div class="position-relative form-group">
+                    <button type="submit" class="btn btn-primary text-white">Gua="form-control"> *@
+                        @Html.TextBoxFor(a => a.ExamenFisico.FrecuenciaRespiratoria, new {@class="form-control", @placeholder="Frecuencia Respiratoria"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.FrecuenciaRespiratoria, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Saturación de oxígeno</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.ExamenFisico.SaturacionDeOxigeno, new {@class="form-control", @placeholder="Saturación de oxígeno"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.SaturacionDeOxigeno, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Presión arterial brazo derecho</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.ExamenFisico.PresionArterialBrazoDerecho, new {@class="form-control", @placeholder="Presión arterial brazo derecho"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.PresionArterialBrazoDerecho, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Presión arterial brazo izquierdo</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.ExamenFisico.PresionArterialBrazoIzquierdo, new {@class="form-control", @placeholder="Presión arterial brazo izquierdo"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.PresionArterialBrazoIzquierdo, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="position-relative form-group"><label class="">Presión arterial brazo derecho</label>
+                        @Html.TextBoxFor(a => a.ExamenFisico.PresionArterialBrazoDerecho, new {@class="form-control", @placeholder="Presión arterial brazo derecho"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.PresionArterialBrazoDerecho, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+
+                 <div class="col-12">
+                    <div class="position-relative form-group"><label class="">Observaciones o texto adicional</label>
+                        @Html.TextAreaFor(a => a.ExamenFisico.Observaciones, new {@class="form-control", @placeholder="Observaciones o texto adicional"})
+                        @Html.ValidationMessageFor(a => a.ExamenFisico.Observaciones, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+
+            <div class="col-md-12">
+                <div class="position-relative form-group">
+                    <button type="submit" class="btn btn-primary text-white">Guardar</button>
+                    <a asp-controller="Consultas" asp-action="Informacion" asp-route-consultaId="@Model.ConsultaId" class="btn btn-danger text-white">Regresar</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+

@@ -1,0 +1,35 @@
+@await Html.PartialAsync("_MensajeExito")
+<form asp-controller="Productos" asp-action="NuevoBodegaInsumosMedicos" method="post">
+@await Html.PartialAsync("_ProductoInsumosForm")
+</form>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        
+        $(function(){
+            $('.select2bs4').select2({
+                theme: 'bootstrap4',
+                @* tags: true, *@
+                });
+        });
+
+         $('#reservationtime').daterangepicker({
+                    timePicker: true,
+                    timePickerIncrement: 30,
+                    singleDatePicker: true,
+                    locale: {
+                        format: 'MM/DD/YYYY hh:mm A'
+                    }
+                });
+
+    </script>
+    }
+
+    @section css
+{
+    <link href="~/css/daterangepicker.css" rel="stylesheet">
+}

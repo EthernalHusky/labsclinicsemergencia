@@ -1,0 +1,113 @@
+@model sistema.Models.PacientesBaseViewModel
+
+<div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Nombre completo del Paciente</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Paciente.Nombre, new {@class="form-control", @placeholder="Nombre Paciente"})
+                        @Html.ValidationMessageFor(a => a.Paciente.Nombre, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Fecha de Nacimiento</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Paciente.FechaNacimiento, "{0:yyyy-MM-dd}", new {@class="form-control", @type="date"})
+                        @Html.ValidationMessageFor(a => a.Paciente.FechaNacimiento, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="position-relative form-group">
+                        <label class="">Sexo</label>
+                        <select class="form-control select2bs4" style="width: 100%;" asp-for="Paciente.SexoId"
+                                asp-items="@Model.SexoSelectListItems">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Teléfono</label>
+                        @* <input placeholder="Precio" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Paciente.Telefono, new{ type="number", @class="form-control",
+                                       @placeholder="Telefono"})
+                        @* @Html.EditorFor(a => a.Producto.Precio, new { htmlAttributes = new { @type = "number",
+                            @class="form-control", @placeholder="Precio"}}) *@
+                        @Html.ValidationMessageFor(a => a.Paciente.Telefono, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Celular</label>
+                        @* <input placeholder="Precio" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Paciente.Celular, new{ type="number", @class="form-control",
+                                       @placeholder="Celular"})
+                        @* @Html.EditorFor(a => a.Producto.Precio, new { htmlAttributes = new { @type = "number",
+                            @class="form-control", @placeholder="Precio"}}) *@
+                        @Html.ValidationMessageFor(a => a.Paciente.Celular, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><label  class="">Nit</label>
+                        @* <input placeholder="Descripción Producto" class="form-control"> *@
+                        @Html.TextBoxFor(a => a.Paciente.Nit, new {type="number", @class="form-control",
+                                       @placeholder="Nit"})
+                        @Html.ValidationMessageFor(a => a.Paciente.Nit, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Direccion</label>
+                        @Html.TextBoxFor(a => a.Paciente.Direccion, new{ @class="form-control",
+                                       @placeholder="Direccion"})
+                        @Html.ValidationMessageFor(a => a.Paciente.Direccion, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Número de Afiliación</label>
+                        @Html.TextBoxFor(a => a.Paciente.no_IGGS, new{ @class="form-control",
+                                       @placeholder="Número de Afiliación"})
+                        @Html.ValidationMessageFor(a => a.Paciente.no_IGGS, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+                 <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label class="">¿Está afiliado?</label>
+                        @Html.CheckBoxFor(a => a.Paciente.esta_Afiliado, new{ @class="form-control float-left",
+                                       })
+                        @Html.ValidationMessageFor(a => a.Paciente.esta_Afiliado, "", new { @class = "text-danger"})
+                    </div>
+                </div>
+
+                </div>
+                <div class="form-row">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="position-relative form-group">
+                            <button class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+                @* <div class="form-row">
+                    <div class="form-md-12">
+                    <div class="position-relative form-group">
+                    <label>Archivo</label>
+                    <input type="file" class="form-control-file">
+
+                    </div>
+                    </div>
+                    </div> *@
+            </div>
+        </div>
+    </div>
+

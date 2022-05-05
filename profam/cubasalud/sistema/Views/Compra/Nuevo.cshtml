@@ -1,0 +1,173 @@
+@model sistema.Models.CompraBaseViewModel
+
+@{
+    ViewData["Title"] = "Nuevo Compra";
+}
+
+
+
+ @await Html.PartialAsync("_MensajeExito")
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+<div class="position-relative form-group">
+    
+<button type="button" class="btn btn-primary" onclick="GuardarComoPedido()">Guardar como pedido</button>
+<button type="button" class="btn btn-primary" onclick="GuardarCompraGenerar()">Guardar como compra</button>
+</div>
+
+@* @if (Model.Compra.Estado == false)
+{
+<div class="col-md-12">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="btn btn-success" id="agregarprodt" >Agregar</button>
+            </div>
+            <br><br>
+            <select class="form-control select2bs4" style="width: 80%;" asp-items="@Model.ListaProductosEInsumos" id="productoselecttxt"> 
+
+            </select>
+        </div>
+</div>
+} *@
+
+@if(Model.Compra.Estado == false)
+{
+<div class="form-row">
+         <div class="col-md-10">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <input type="submit" value="Agregar" class="btn btn-success" id="agregarprodt">
+            </div>
+            <select class="form-control select2bs4" style="width: 80%;" asp-items="@Model.ListaProductosEInsumos" id="productoselecttxt"> 
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="position-relative form-group">
+                <select class="form-control select2bs4" style="width: 100%;" asp-items="@Model.ListaCasaMedica" id="casamedicaseelecttxt"> 
+                    <option  selected="selected">--- TODOS ---</option>
+                </select>
+        </div>
+    </div>
+</div>
+}
+
+
+@await Html.PartialAsync("_CompraForm");
+
+
+@section Scripts
+{
+    <script src="~/js/FuncionesCompra.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script type="text/javascript" src="~/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/daterangepicker.js"></script>
+
+<script>
+
+$('#fechalimite').daterangepicker({
+    timePicker: true,
+    singleDatePicker: true,
+    locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+    }
+});
+
+$(function(){
+    $('#productoselecttxt').select2({
+        theme: 'bootstrap4',
+        tags: true,
+        });
+});
+
+$(function(){
+    $('#casamedicaseelecttxt').select2({
+        theme: 'bootstrap4',
+        tags: true,
+        });
+});
+
+
+  @* var sumatotal = 0.00;
+  
+    $(function(){
+        
+    $('.select2bs4').select2({
+      theme: 'bootstrap4',
+      tags: true,
+    })
+    });
+
+    $( "#agregarprodt" ).click(function() {
+        var codigo = document.getElementById('productoselecttxt').value;
+        var producto = BuscarProductoByCodigo(codigo);
+
+        console.log(producto);
+    });
+
+
+    function BuscarProductoByCodigo(codigo)
+    {
+        var datos = {"id" : codigo }
+
+        return $.ajax({
+            method: "GET",
+            data : datos,
+            dataType: 'json',
+            url: '/Productos/RetornarProductoByIdCompras',
+            traditional: true,
+            success: function (data, state) {
+               agregarATablaC(data)
+            },
+            error: function (data) {
+            }
+
+        });
+    }
+
+
+    function agregarATablaC(data) {
+      sumatotal = sumatotal + data.precio;
+
+    var htmlTags = '<tr style="background-color:rgba(255,211,105,0.5);"> <td> ' + data.id + '</td>' +
+        '<td> ' + data.nombreProducto + ' </td>' +
+        '<td class="cantidad-fila" ><input type="text" onchange="editarValorFila(this)" style="background-color:rgba(255,211,105,0.5);" value="1" class="form-control "></td>' +
+        '<td class="precio-fila"> ' + data.precio.toFixed(2) + ' </td>' +
+        '<td class="total-t">' + data.precio.toFixed(2) + '</td>' +
+        '<td><button  type="button"  class="btn btn-danger btn-sm" onclick="eliminarFilaC(this)">Quitar</button></td>' +
+        '<td style="display:none;" class="nuevo-detalle"> ' + data.id + ' </td></tr>'
+      
+      $('#contentdetalle-c').append(htmlTags);
+      document.getElementById('precio-total-c').innerHTML = sumatotal.toFixed(2);
+
+
+    document.getElementById('precio-total-c').innerHTML = sumatotal.toFixed(2); 
+
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "100",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "show",
+        "hideMethod": "hide"
+    };
+toastr.success('Producto agregado!');
+   
+} *@
+</script>
+}
+
+@section css
+{
+    <link href="~/css/daterangepicker.css" rel="stylesheet">
+
+}

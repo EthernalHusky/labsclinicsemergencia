@@ -1,0 +1,117 @@
+@using Database.Shared.Paginacion;
+@model PaginacionList<Database.Shared.Models.Compra> 
+
+@{
+    ViewData["Title"] = "Lista Peticiones";
+}
+
+<form asp-action="ListaPeticiones" method="get">
+    <div class="col-md-12">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <input type="submit" value="Buscar" class="btn btn-success"></input>
+            </div>
+            <input type="text" name="buscar" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Buscar Compra...">
+        </div>
+    </div>
+</form>
+
+
+<br/>
+
+<div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <div class="table-responsive">
+                    <table class="mb-0 table table-hover ">
+                        <thead>
+                        <tr>
+                            <th>Fecha emisión</th>
+                            <th>Compra #</th>
+                            <th>Proveedor</th>
+                            <th>Comprobante</th>
+                            <th>Resp.</th>
+                            <th>Tipo</th>
+                            <th>Fecha Limite</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                        <tr>
+                        <td>@item.FechaCompra</td>
+                                <td>@item.Id</td>
+                                <td>@item.Proveedor.Nombre</td>
+                                <td>@item.NoComprobante</td>
+                                <td>@item.Empleado.Nombre</td>
+                                <td>@item.TipoCompra.Tipo</td>
+                                <td>@item.FechaLimite</td>
+                                <td>Q @item.DetalleCompras.Sum(a=>a.PrecioTotal)</td>
+                                <td>@item.verEstado()</td>
+                                <td>
+                                    @if (@item.Estado == true)
+                                    {
+                                        <a href="@Url.Action("Modificar","Compra", new {id = @item.Id})"
+                                            class="btn btn-primary">
+                                            Ver Detalles
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Modificar","Compra", new {id = @item.Id})"
+                                            class="btn btn-warning">
+                                            Modificar
+                                        </a>
+                                    }
+                                    @* <a href="@Url.Action("Eliminar","Compra", new {id = @item.Id})" class="btn
+                                        btn-danger">
+                                        Eliminar
+                                        </a> *@
+                                </td>
+                        </tr>
+                            }
+                        </tbody>
+                    </table>
+            </div>
+             
+        </div>
+    </div>
+</div>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="ListaPeticiones"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-danger btn-sm @prevDisabled">
+    Anterior
+</a>
+<a asp-action="ListaPeticiones"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-danger btn-sm @nextDisabled" class="">
+    Siguiente
+</a>
+
+@section Scripts
+{
+    <script> 
+    function IngresarAInventario(id){
+
+        var datos = {"RecepcionId": id}
+
+        $.ajax({
+            method: "POST",
+            
+        });
+    }
+    </script>
+}
