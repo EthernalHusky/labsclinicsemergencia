@@ -226,7 +226,7 @@ namespace Database.Shared.Data
             // .Include(a => a.Empleado).ThenInclude(a => a.Users)
             .Include(a => a.Paciente)
             .Include(a => a.VentasLabs)
-            .Include(a => a.DetalleExamenes).ThenInclude(a => a.ExamenLabClinico)
+            .Include(a => a.DetalleExamenes).ThenInclude(a => a.ExamenLabClinico).ThenInclude(a => a.DatosExamenesLabClinicos)
             .Where(a => a.Id == id).FirstOrDefault();
         }
 
