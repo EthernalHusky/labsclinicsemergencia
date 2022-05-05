@@ -55,7 +55,7 @@
                                             <h5>Méd. Referido: @Model.Examen.DoctorReferido</h5>
                                             <h5>Clínica Refedira: @Model.Examen.ClinicaReferida</h5>
                                             <br>
-                                            <a href="@Url.Action("GenerarResultados","CrearPDF", new {id = "@Model.Examen.Id"})" class="btn btn-danger"> Generar Resultados </a>
+                                            <a href="@Url.Action("GenerarResultados","CrearPDF", new {id = @Model.Examen.Id})" class="btn btn-danger"> Generar Resultados </a>
                                             <br>
                                             <br>
 
