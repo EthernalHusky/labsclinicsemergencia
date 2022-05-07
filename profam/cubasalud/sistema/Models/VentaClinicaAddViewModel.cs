@@ -39,6 +39,7 @@ namespace sistema.Models
         public int ClienteId {get;set;}
         public string MedicoReferido {get;set;}
         public string ClinicaReferida {get;set;}
+        public string Medico {get;set;}
 
     }
 } 

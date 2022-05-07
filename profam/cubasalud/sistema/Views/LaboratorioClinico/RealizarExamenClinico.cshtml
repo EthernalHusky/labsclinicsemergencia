@@ -1,7 +1,7 @@
 @model sistema.Models.RealizarExamenLabClinicoViewModel
 
 @{
-    ViewData["Title"] = "Nueva Categoria";
+    ViewData["Title"] = "Punto de Venta Lab.";
 }
 @await Html.PartialAsync("_MensajeExito")
 
@@ -455,7 +455,8 @@ function GuardarVentaLab() {
             "Monto": parseFloat(document.getElementById('montotxt').value),
             "Vuelto" :  parseFloat(document.getElementById('vuelto-n').innerText), 
             "EmpleadoId": parseInt(document.getElementById('empleadoid').value),
-            "MedicoReferido" : document.getElementById('medicoreferido').value,
+            @* "MedicoReferido" : document.getElementById('medicoreferido').value, *@
+            "Medico" :$('#medicoreferido option:selected').text(),
             "ClinicaReferida" : document.getElementById('clinicareferida').value,
         },
 
@@ -463,13 +464,12 @@ function GuardarVentaLab() {
     }
 
     console.log(datos);
-
     
 //    var data = { "datos": datos }
 
    if(saldo==0){
 
-    $.ajax({
+    $.ajax({ 
         method: "POST",
         data: JSON.stringify(datos),
         "dataType": "json",
@@ -477,8 +477,10 @@ function GuardarVentaLab() {
         url: '/LaboratorioClinico/GuardarVentaLab',
         traditional: true,
         success: function (data) {
-            //window.open('/CrearPDF/ReciboVentaPdf/'+ data,'_blank');
-            window.location.href = '/LaboratorioClinico/RealizarExamenClinico/';
+            alert(data);
+            @* window.open('/CrearPDF/GenerarReporteExamen/'+ data,'_blank'); *@
+            @* window.location.href = '/LaboratorioClinico/RealizarExamenClinico/'; *@
+            window.location.href = '@Url.Action("GenerarReporteExamen","CrearPDF")/'+ data;
         },
         error: function (data) {
             console.log(data);
@@ -492,6 +494,36 @@ function GuardarVentaLab() {
    }
 
 }
+
+$("#clienteselect").on('change', function () {
+
+    $.ajax({
+        method: "GET",
+        data: { "id": $("#clienteselect option:selected").val() },
+        dataType: 'json',
+        url: '/LaboratorioClinico/RetornarPaciente',
+        traditional: true,
+        success: function (data, state) {
+            console.log(data);
+
+            if (data === null) {
+                document.getElementById("Nit").value = "";
+                document.getElementById("Nombres").value = "";
+                document.getElementById("Direccion").value = "";
+                return;
+            }
+
+                document.getElementById("Nit").value = data.nit;
+                document.getElementById("Nombres").value = data.nombres;
+                document.getElementById("Direccion").value = data.direccion;
+
+        },
+        error: function (data) {
+
+        },
+
+    });
+});
 
 
 

@@ -6,7 +6,6 @@
     var todayDate = DateTime.Now;
 }
 
-
 @await Html.PartialAsync("_MensajeExito")
 
 
@@ -55,12 +54,13 @@
                         {
                             var NombreEstado = item.EstadoExamen == null ? "// sin asignar" : item.EstadoExamen.Nombre;
                             var paciente = item.Paciente == null ? "" : item.Paciente.Nombre;
+                            var medico = item.Medicos == null ? "// si referencia"  : item.Medicos.Nombres;
 
                             <tr>
                                 <td>@item.Id</td>
                                 <td>@paciente</td>
                                 <td>@item.FechaRealizacion</td>
-                                <td>@item.DoctorReferido</td>
+                                <td>@medico</td>
                                 <td>@item.ClinicaReferida</td>
                                 @* <td>@item.ExamenLabClinico.NombreExamen</td>
                                 <td>@item.ExamenLabClinico.CategoriaLabClinico.Nombre</td>

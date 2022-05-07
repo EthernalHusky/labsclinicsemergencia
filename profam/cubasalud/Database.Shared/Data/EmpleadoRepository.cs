@@ -27,16 +27,39 @@ namespace Database.Shared.Data
             }
         }
 
+        public void Add(Medicos medico, bool saveChanges = true)
+        {
+            _context.Medicos.Add(medico);
+
+            if (saveChanges)
+            {
+                _context.SaveChanges();
+            }
+        }
+
         public Empleado Get(int id, bool includeRelatedEntities = true)
         {
-
             return _context.Empleados
                .Where(a => a.Id == id)
-               .SingleOrDefault();
+               .SingleOrDefault();  
+        }
 
+        public Medicos GetMedicoById(int id, bool includeRelatedEntities = true)
+        {
+            return _context.Medicos
+               .Where(a => a.Id == id)
+               .SingleOrDefault(); 
+        }
 
+        public Medicos GetMedicoByName(string name, bool includeRelatedEntities = true)
+        {
+            return _context.Medicos
+               .Where(a => a.Nombres == name)
+               .SingleOrDefault(); 
         }
         public List<Empleado> GetList() => _context.Empleados.Where(x=>x.Eliminado==false).ToList();
+ 
+        public List<Medicos> GetListMedicos() => _context.Medicos.Where(x => x.Eliminado==false).ToList();
 
          public PaginacionList<Empleado> PaginacionEmpleados(string sortOrder, string searchString, int? pageNumber, int pageSize)
         {

@@ -483,7 +483,8 @@ namespace sistema.Controllers
             var model = new RealizarExamenLabClinicoViewModel();
             ViewBag.MostrarEstado = false;
             
-            model.Init(_laboratorioClinico, _empleadosDoctoresRepository,_pacientesRepository, _envioRepository);
+            model.Init(_laboratorioClinico, _empleadosDoctoresRepository, 
+            _pacientesRepository, _envioRepository);
             return View(model);
         }
 
@@ -658,7 +659,7 @@ namespace sistema.Controllers
         }
 
 
-                [Authorize(Roles = "Administrador, Vendedor, Supervisor")]
+        [Authorize(Roles = "Administrador, Vendedor, Supervisor")]
         public JsonResult GuardarVentaLab([FromBody]VentaClinicaAddViewModel model)
         {
             // registrar un identificador si es de farm o de clinica
@@ -693,86 +694,180 @@ namespace sistema.Controllers
                 var paciente = _pacienteRepository.Get(model.encabezado.ClienteId);
                 var cajaAbierta = _laboratorioClinico.GetCajaAbierta();
                 var empleado = _empleadoRepository.Get(model.encabezado.EmpleadoId);
+                var medico = _empleadoRepository.GetMedicoByName(model.encabezado.Medico);
 
                 if (empleado == null)
                 {
                     return new JsonErrorResult(new { message = "¡Codigo de empleado incorrecto.!" });
                 }
 
-                var examen = new Examen()
+
+                if(medico == null)
                 {
-                    Paciente = paciente,
-                    EstadoExamenId = 1,
-                    FechaRealizacion = DateTime.Now,
-                    DoctorReferido = model.encabezado.MedicoReferido,
-                    ClinicaReferida = model.encabezado.ClinicaReferida
-
-                };
-               
-                var nuevaVenta = new VentasLab()
-                {
-                    // NoComprobante = model.encabezado.NoComprobante,
-                    Nombres = model.encabezado.Nombres,
-                    Nit = model.encabezado.Nit,
-                    Direccion = model.encabezado.Direccion,
-                    // Paciente = paciente,
-                    // FormaPago = model.detalle.encabezado.FormaPago,
-                    FechaVenta = DateTime.Now,
-                    EmpleadoResponsable = empleado.Nombre,
-                    // TipoVenta = "clinica",
-                    MontoPagado = model.encabezado.Monto,
-                    Vuelto = model.encabezado.Vuelto,
-                    Examen = examen
-                };
-
-                var pago = new Pagos()
-                {
-                    VentaLab = nuevaVenta,
-                    FormaPagoId = Convert.ToInt32(model.encabezado.FormaPago),
-                    Monto = Convert.ToDecimal(model.encabezado.Monto),
-                };
-
-                _envioRepository.AddPago(pago, false);
-
-               
-
-                var nuevoDetalleCaja = new DetalleCajaLab()
-                {
-                    VentasLab = nuevaVenta,
-                    Descripcion = "Venta de examen: " + paciente.Nombre,
-                    Ingreso = model.encabezado.Monto,
-                    CajaLab = cajaAbierta
-                };
-                
-                _laboratorioClinico.Add(nuevoDetalleCaja, false);
-
-                foreach (var item in model.detalle)
-                {
-                    
-                    var nuevodetalle = new DetalleExamen()
+                    var nuevoMedico  = new Medicos()
                     {
-                        Examen = examen,
-                        Cantidad = item.Cantidad,
-                        Precio = item.Precio,
-                        Descuento = item.Descuento,
-                        Subtotal = item.Subtotal,
-                        Total = item.Total,
-                        ExamenLabClinicoId = item.ProductoId,
+                        Nombres = model.encabezado.Medico
                     };
 
-                    _laboratorioClinico.Add(nuevodetalle, false);
+                    // _empleadoRepository.Add(nuevoMedico, false);
 
-                    //restar al inventario
-                    // var producto = _productoRepository.Get((int)nuevodetalle.ProductoId);
-                    // producto.Stock -= nuevodetalle.Cantidad;
-                    // _productoRepository.Update(producto, false);
+                    var examen = new Examen()
+                    {
+                        Paciente = paciente,
+                        EstadoExamenId = 1,
+                        FechaRealizacion = DateTime.Now,
+                        Medicos = nuevoMedico,
+                        ClinicaReferida = model.encabezado.ClinicaReferida
+
+                    };
+                    
+                    var nuevaVenta = new VentasLab()
+                    {
+                        // NoComprobante = model.encabezado.NoComprobante,
+                        Nombres = model.encabezado.Nombres,
+                        Nit = model.encabezado.Nit,
+                        Direccion = model.encabezado.Direccion,
+                        // Paciente = paciente,
+                        // FormaPago = model.detalle.encabezado.FormaPago,
+                        FechaVenta = DateTime.Now,
+                        EmpleadoResponsable = empleado.Nombre,
+                        // TipoVenta = "clinica",
+                        MontoPagado = model.encabezado.Monto,
+                        Vuelto = model.encabezado.Vuelto,
+                        Examen = examen
+                    };
+
+                    var pago = new Pagos()
+                    {
+                        VentaLab = nuevaVenta,
+                        FormaPagoId = Convert.ToInt32(model.encabezado.FormaPago),
+                        Monto = Convert.ToDecimal(model.encabezado.Monto),
+                    };
+
+                    _envioRepository.AddPago(pago, false);
+
+                    
+
+                    var nuevoDetalleCaja = new DetalleCajaLab()
+                    {
+                        VentasLab = nuevaVenta,
+                        Descripcion = "Venta de examen: " + paciente.Nombre,
+                        Ingreso = model.encabezado.Monto,
+                        CajaLab = cajaAbierta
+                    };
+                    
+                    _laboratorioClinico.Add(nuevoDetalleCaja, false);
+
+                    foreach (var item in model.detalle)
+                    {
+                        
+                        var nuevodetalle = new DetalleExamen()
+                        {
+                            Examen = examen,
+                            Cantidad = item.Cantidad,
+                            Precio = item.Precio,
+                            Descuento = item.Descuento,
+                            Subtotal = item.Subtotal,
+                            Total = item.Total,
+                            ExamenLabClinicoId = item.ProductoId,
+                        };
+
+                        _laboratorioClinico.Add(nuevodetalle, false);
+
+                        //restar al inventario
+                        // var producto = _productoRepository.Get((int)nuevodetalle.ProductoId);
+                        // producto.Stock -= nuevodetalle.Cantidad;
+                        // _productoRepository.Update(producto, false);
+                    }
+
+                    _laboratorioClinico.saveChanges();
+
+                    TempData["Message"] = "¡La venta se ha guardado con éxito.!";
+
+                    return Json(nuevaVenta.Id);
+                    
+                }
+                else 
+                {
+                    var examen = new Examen()
+                    {
+                        Paciente = paciente,
+                        EstadoExamenId = 1,
+                        FechaRealizacion = DateTime.Now,
+                        Medicos = medico,
+                        ClinicaReferida = model.encabezado.ClinicaReferida
+
+                    };
+                    
+                    var nuevaVenta = new VentasLab()
+                    {
+                        // NoComprobante = model.encabezado.NoComprobante,
+                        Nombres = model.encabezado.Nombres,
+                        Nit = model.encabezado.Nit,
+                        Direccion = model.encabezado.Direccion,
+                        // Paciente = paciente,
+                        // FormaPago = model.detalle.encabezado.FormaPago,
+                        FechaVenta = DateTime.Now,
+                        EmpleadoResponsable = empleado.Nombre,
+                        // TipoVenta = "clinica",
+                        MontoPagado = model.encabezado.Monto,
+                        Vuelto = model.encabezado.Vuelto,
+                        Examen = examen
+                    };
+
+                    var pago = new Pagos()
+                    {
+                        VentaLab = nuevaVenta,
+                        FormaPagoId = Convert.ToInt32(model.encabezado.FormaPago),
+                        Monto = Convert.ToDecimal(model.encabezado.Monto),
+                    };
+
+                    _envioRepository.AddPago(pago, false);
+
+                    
+
+                    var nuevoDetalleCaja = new DetalleCajaLab()
+                    {
+                        VentasLab = nuevaVenta,
+                        Descripcion = "Venta de examen: " + paciente.Nombre,
+                        Ingreso = model.encabezado.Monto,
+                        CajaLab = cajaAbierta
+                    };
+                    
+                    _laboratorioClinico.Add(nuevoDetalleCaja, false);
+
+                    foreach (var item in model.detalle)
+                    {
+                        
+                        var nuevodetalle = new DetalleExamen()
+                        {
+                            Examen = examen,
+                            Cantidad = item.Cantidad,
+                            Precio = item.Precio,
+                            Descuento = item.Descuento,
+                            Subtotal = item.Subtotal,
+                            Total = item.Total,
+                            ExamenLabClinicoId = item.ProductoId,
+                        };
+
+                        _laboratorioClinico.Add(nuevodetalle, false);
+
+                        //restar al inventario
+                        // var producto = _productoRepository.Get((int)nuevodetalle.ProductoId);
+                        // producto.Stock -= nuevodetalle.Cantidad;
+                        // _productoRepository.Update(producto, false);
+                    }
+
+                    _laboratorioClinico.saveChanges();
+
+                    TempData["Message"] = "¡La venta se ha guardado con éxito.!";
+
+                    return Json(nuevaVenta.Id);
                 }
 
-                _laboratorioClinico.saveChanges();
+                
 
-                TempData["Message"] = "¡La venta se ha guardado con éxito.!";
-
-                return Json(nuevaVenta.Id);
+               
 
             }
 
@@ -971,6 +1066,20 @@ namespace sistema.Controllers
 
             return View(viewModel.DetalleExamen);
 
+        }
+
+        public JsonResult RetornarPaciente(int id)
+        {
+            var paciente = _pacienteRepository.Get((int)id);
+
+            var model = new
+            {
+                nombres = paciente.Nombre,
+                nit = paciente.Nit,
+                direccion = paciente.Direccion,
+            };
+
+            return Json(model);
         }
 
     }

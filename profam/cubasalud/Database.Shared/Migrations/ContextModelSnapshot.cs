@@ -1375,6 +1375,9 @@ namespace Database.Shared.Migrations
                     b.Property<DateTime>("FechaRealizacion")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int?>("MedicosId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("PacienteId")
                         .HasColumnType("integer");
 
@@ -1392,6 +1395,8 @@ namespace Database.Shared.Migrations
                     b.HasIndex("EmpleadoId");
 
                     b.HasIndex("EstadoExamenId");
+
+                    b.HasIndex("MedicosId");
 
                     b.HasIndex("PacienteId");
 
@@ -1651,6 +1656,27 @@ namespace Database.Shared.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Marcas");
+                });
+
+            modelBuilder.Entity("Database.Shared.Models.Medicos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Nombres")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Titulo")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Medicos");
                 });
 
             modelBuilder.Entity("Database.Shared.Models.Paciente", b =>
@@ -2433,35 +2459,35 @@ namespace Database.Shared.Migrations
                         new
                         {
                             Id = "d2716b4b-671d-4814-a04c-b51aa97051e8",
-                            ConcurrencyStamp = "e4f021a4-0b16-432f-9aa4-a179b187be97",
+                            ConcurrencyStamp = "a4bbc0d2-c6eb-4215-9799-45a06c2d76d3",
                             Name = "Vendedor",
                             NormalizedName = "VENDEDOR"
                         },
                         new
                         {
                             Id = "785c160e-6a4f-4fd8-8121-4e6b2af230cd",
-                            ConcurrencyStamp = "15b3709a-8db4-4542-bcc3-35d8d3ad9bb8",
+                            ConcurrencyStamp = "34925433-c644-44af-a345-964094b71579",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
                             Id = "ec320394-8501-4710-a2ae-85e04315a5f9",
-                            ConcurrencyStamp = "38b780c7-35c4-45bb-a076-950678c85d3b",
+                            ConcurrencyStamp = "dd451a93-7ad6-47c8-a92a-612b62511c3b",
                             Name = "Cajero",
                             NormalizedName = "CAJERO"
                         },
                         new
                         {
                             Id = "4e725ea5-282e-401c-9e82-da4947e382ef",
-                            ConcurrencyStamp = "81b597e4-60f4-4998-96ad-7e64c2bf7c70",
+                            ConcurrencyStamp = "8a4adc2b-144f-4a7c-b41a-1e94a755c0bb",
                             Name = "Mensajero",
                             NormalizedName = "MENSAJERO"
                         },
                         new
                         {
                             Id = "3c06eaf3-10d4-40ae-bd00-3d50d629cfde",
-                            ConcurrencyStamp = "40481d19-a1c4-4d1b-981f-66308a108405",
+                            ConcurrencyStamp = "89864a74-0cbb-44d0-b3a0-97209e47c8b6",
                             Name = "Supervisor",
                             NormalizedName = "SUPERVISOR"
                         });
@@ -3069,11 +3095,17 @@ namespace Database.Shared.Migrations
                         .WithMany("Examenes")
                         .HasForeignKey("EstadoExamenId");
 
+                    b.HasOne("Database.Shared.Models.Medicos", "Medicos")
+                        .WithMany("Examens")
+                        .HasForeignKey("MedicosId");
+
                     b.HasOne("Database.Shared.Models.Paciente", "Paciente")
                         .WithMany("Examens")
                         .HasForeignKey("PacienteId");
 
                     b.Navigation("EstadoExamen");
+
+                    b.Navigation("Medicos");
 
                     b.Navigation("Paciente");
                 });
@@ -3522,6 +3554,11 @@ namespace Database.Shared.Migrations
             modelBuilder.Entity("Database.Shared.Models.Marca", b =>
                 {
                     b.Navigation("Productos");
+                });
+
+            modelBuilder.Entity("Database.Shared.Models.Medicos", b =>
+                {
+                    b.Navigation("Examens");
                 });
 
             modelBuilder.Entity("Database.Shared.Models.Paciente", b =>

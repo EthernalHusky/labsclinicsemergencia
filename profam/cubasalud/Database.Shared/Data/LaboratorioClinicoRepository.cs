@@ -49,7 +49,7 @@ namespace Database.Shared.Data
 
             return PaginacionList<VentasLab>.CreateAsyncc(ventas
             .Where(x => x.Eliminado == false)
-            .OrderBy(a => a.Id), 
+            .OrderByDescending(a => a.Id), 
             pageNumber ?? 1, pageSize);
         }
 
@@ -80,6 +80,7 @@ namespace Database.Shared.Data
         public PaginacionList<Examen> PaginacionExamenesRealizados(string sortOrder, string searchString, int? pageNumber, int pageSize, int? estado)
         {
             var examen = _context.Examenes
+            .Include(a => a.Medicos)
             // .Include(a => a.Empleado).ThenInclude(a => a.Users)
             .Include(a => a.DetalleExamenes).ThenInclude(a => a.ExamenLabClinico) .ThenInclude(a => a.CategoriaLabClinico)
             .Include(a => a.Paciente)
@@ -224,6 +225,7 @@ namespace Database.Shared.Data
         {
             return _context.Examenes
             // .Include(a => a.Empleado).ThenInclude(a => a.Users)
+            .Include(a => a.Medicos)
             .Include(a => a.Paciente)
             .Include(a => a.VentasLabs)
             .Include(a => a.DetalleExamenes).ThenInclude(a => a.ExamenLabClinico).ThenInclude(a => a.DatosExamenesLabClinicos)
@@ -376,7 +378,7 @@ namespace Database.Shared.Data
                 _context.SaveChanges();
             }
         } 
-
+ 
 
         public void Add(CajaLab detalle, bool saveChanges = true)
         {

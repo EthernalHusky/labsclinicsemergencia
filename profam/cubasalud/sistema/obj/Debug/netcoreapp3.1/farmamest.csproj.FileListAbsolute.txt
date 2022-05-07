@@ -4603,3 +4603,4 @@
 /home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/obj/Debug/netcoreapp3.1/farmamest.dll
 /home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/obj/Debug/netcoreapp3.1/farmamest.pdb
 /home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/obj/Debug/netcoreapp3.1/farmamest.genruntimeconfig.cache
+/home/benjamin/Desktop/labs2/labsclinicsemergencia/profam/cubasalud/sistema/obj/Debug/netcoreapp3.1/Razor/Views/CrearPDF/GenerarResultados.cshtml.g.cs

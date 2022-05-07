@@ -4,6 +4,7 @@
     decimal subtotal = 0.00m;
     decimal total = 0.00m;
     decimal descuento = 0.00m;
+    var todayDate = DateTime.Now;
 }
 
 <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
@@ -41,6 +42,14 @@
                                     }
                                     else {
                                         var paciente = "";
+                                        var edad = 0;
+                                        var medico = Model.Examen.Medicos == null ? "// sin referencia" : Model.Examen.Medicos.Nombres;
+
+                                        if(Model.Examen.Paciente.FechaNacimiento != null)
+                                        {
+                                            edad = todayDate.Year - Model.Examen.Paciente.FechaNacimiento.Value.Year;
+                                            if (todayDate.Month < Model.Examen.Paciente.FechaNacimiento.Value.Month || (todayDate.Month == Model.Examen.Paciente.FechaNacimiento.Value.Month && todayDate.Day < Model.Examen.Paciente.FechaNacimiento.Value.Day)) edad--;
+                                        }
                                         if(@Model.Examen != null)
                                         {
                                             if(@Model.Examen.Paciente != null)
@@ -48,12 +57,14 @@
                                                 paciente = @Model.Examen.Paciente.Nombre;
                                             }
                                         }
+
                                         @Html.HiddenFor(a => a.Examen.PacienteId)
                                         <div class="container-fluid" style="border-style: ridge ; ">
                                             <h5>Paciente: @paciente</h5>
+                                            <h5>Edad: @(edad == 0 ? "/ No hay registro" : edad.ToString())</h5>
                                             <h5>Núm. Afil.: @(string.IsNullOrEmpty(Model.Examen.Paciente.no_IGGS) ? " / sin registro" : Model.Examen.Paciente.no_IGGS)</h5>
-                                            <h5>Méd. Referido: @Model.Examen.DoctorReferido</h5>
-                                            <h5>Clínica Refedira: @Model.Examen.ClinicaReferida</h5>
+                                            <h5>Méd. Referido: @medico</h5>
+                                            <h5>Clínica Referida: @Model.Examen.ClinicaReferida</h5>
                                             <br>
                                             <a href="@Url.Action("GenerarResultados","CrearPDF", new {id = @Model.Examen.Id})" class="btn btn-danger"> Generar Resultados </a>
                                             <br>
@@ -107,14 +118,17 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <label class="">Médico Referido</label>
-                                            <input type="text" class="form-control" id="medicoreferido"/>
+                                            @* <input type="text" class="form-control" id=""/> *@
+                                            <select class="form-control select2bs4" style="width: 100%;" asp-for="Examen.MedicosId"
+                                                asp-items="@Model.ListaMedicosDisponibles" id="medicoreferido">
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <label class="">Clínica Referida</label>
-                                            <input type="text" class="form-control" id="clinicareferida"/>
+                                            <input type="text" class="form-control" id="clinicareferida" value="La Gomera" readonly/>
                                         </div>
                                     </div>
 

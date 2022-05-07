@@ -86,9 +86,10 @@ namespace Database.Shared
         public DbSet<Examen> Examenes {get;set;}
         public DbSet<VentasLab> VentasLabs {get;set;}
         public DbSet<EstadoExamen> EstadoExamenes {get;set;}
-
         public DbSet<DetalleCajaLab> DetalleCajaLab {get;set;}
         public DbSet<CajaLab> CajaLab {get;set;}
+
+        public DbSet<Medicos> Medicos {get;set;}
         
 
 

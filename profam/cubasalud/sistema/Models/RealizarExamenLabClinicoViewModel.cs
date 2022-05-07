@@ -26,7 +26,9 @@ namespace sistema.Models
         public void Init(ILaboratorioClinico laboratorioClinico, IEmpleado empleadoRepository, IPacientes pacienteRepository, IEnvio envioRepository)
         {
             ListaExamenesDisponibles = new SelectList(laboratorioClinico.GetListExamenesLaboratorio(), "Id", "NombreExamen");
-            ListaMedicosDisponibles = new SelectList(empleadoRepository.GetList(), "Id", "Nombre");
+            
+            ListaMedicosDisponibles = new SelectList(empleadoRepository.GetListMedicos(), "Id", "Nombres");
+            
             ListaPaciente = new SelectList(pacienteRepository.GetList(), "Id", "PacienteConIGSS");
             ListaEstados = new SelectList(pacienteRepository.GetListEstadosExamen(), "Id", "Nombre"); 
             ListaFormaPagos = new SelectList(envioRepository.GetListPagos(), "Id", "NombreFormaPago");
